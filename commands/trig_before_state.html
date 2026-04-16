@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Before Statement Level Trigger</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>BEFORE STATEMENT LEVEL TRIGGER</h2>
+
+  <p><strong>Definition:</strong>  
+  A <strong>BEFORE STATEMENT LEVEL TRIGGER</strong> is fired <strong>once before the execution of the triggering SQL statement</strong> (INSERT, UPDATE, or DELETE), regardless of how many rows are affected.</p>
+
+  <p><strong>Use Case:</strong>  
+  This type of trigger is commonly used for checking business rules, setting system values, or auditing before a DML operation is performed on a table.</p>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    <pre>
+CREATE OR REPLACE TRIGGER trigger_name  
+BEFORE INSERT OR UPDATE OR DELETE  
+ON table_name  
+BEGIN  
+  -- Trigger logic here  
+END;
+    </pre>
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <p>This trigger checks a rule before any UPDATE on the <code>employees</code> table is executed.</p>
+  <div class="code">
+    <pre>
+CREATE OR REPLACE TRIGGER check_before_update  
+BEFORE UPDATE ON employees  
+BEGIN  
+  DBMS_OUTPUT.PUT_LINE('Update operation is about to begin');  
+END;
+    </pre>
+  </div>
+
+  <p><strong>Explanation:</strong></p>
+  <ul>
+    <li>Does not access individual rows — no use of <code>:NEW</code> or <code>:OLD</code>.</li>
+    <li>Fires only once per triggering SQL statement.</li>
+    <li>Useful for tasks that must be done once before the action starts.</li>
+  </ul>
+
+</body>
+</html>

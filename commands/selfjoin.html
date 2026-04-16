@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>SELF JOIN</h2>
+
+    <p><strong>Definition:</strong>A Self Join is a regular join where a table is joined with itself. It is useful when comparing rows within the same table.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">
+        <pre>
+SELECT A.column_name, B.column_name
+FROM table_name A, table_name B
+WHERE condition;
+        </pre>
+        </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">
+        <pre>
+SELECT A.Name AS Student1, B.Name AS Student2, A.Course
+FROM students A, students B
+WHERE A.Course = B.Course AND A.Name != B.Name;
+        </pre>
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM cricket_players;
++----------+---------------+------+
+| PlayerID | Name          | Age  |
++----------+---------------+------+
+|        1 | Virat Kohli   |   35 |
+|        2 | Rohit Sharma  |   36 |
+|        3 | M.S. Dhoni    |   43 |
+|        4 | Hardik Pandya |   30 |
+|        5 | Shubman Gill  |   35 |
++----------+---------------+------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT A.Name AS Player1, B.Name AS Player2, A.Age FROM cricket_players A, cricket_players B WHERE A.Age = B.Age AND A.PlayerID < B.PlayerID;
++-------------+--------------+------+
+| Player1     | Player2      | Age  |
++-------------+--------------+------+
+| Virat Kohli | Shubman Gill |   35 |
++-------------+--------------+------+
+1 row in set (0.00 sec)      
+</pre>
+    </div>
+
+</body>
+
+</html>

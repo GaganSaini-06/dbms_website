@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>DROPPING VIEW</h2>
+
+    <p><strong>Definition:</strong>Dropping a view means permanently deleting a view from the database using the DROP VIEW statement. Once dropped, it cannot be used again unless recreated.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">DROP VIEW view_name;
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">DROP VIEW young_players;
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM young_players2;
++---------------+------+
+| Name          | Age  |
++---------------+------+
+| Virat Kohli   |   35 |
+| Rohit Sharma  |   36 |
+| Hardik Pandya |   30 |
++---------------+------+
+3 rows in set (0.00 sec)
+
+mysql> DROP VIEW young_players2;
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> SELECT * FROM young_players2;
+ERROR 1146 (42S02): Table 'bca2ndyear_4090.young_players2' doesn't exist
+</pre>
+    </div>
+
+</body>
+
+</html>

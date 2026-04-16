@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to Operators</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>INTRODUCTION TO OPERATORS</h2>
+
+  <p><strong>Definition:</strong> Operators in SQL are special symbols or keywords used to perform operations on data stored in tables. These are essential for creating conditions, filtering data, and performing calculations.</p>
+
+  <p><strong>Types of SQL Operators:</strong></p>
+
+  <ul>
+    <li><strong>Arithmetic Operators:</strong> Used to perform mathematical operations.
+      <ul>
+        <li><code>+</code> (Addition)</li>
+        <li><code>-</code> (Subtraction)</li>
+        <li><code>*</code> (Multiplication)</li>
+        <li><code>/</code> (Division)</li>
+        <li><code>%</code> (Modulus)</li>
+      </ul>
+    </li>
+
+    <li><strong>Comparison Operators:</strong> Used to compare values.
+      <ul>
+        <li><code>=</code>, <code>!=</code> or <code><></code>, <code>></code>, <code><</code>, <code>>=</code>, <code><=</code></li>
+      </ul>
+    </li>
+
+    <li><strong>Logical Operators:</strong> Used to combine multiple conditions.
+      <ul>
+        <li><code>AND</code>, <code>OR</code>, <code>NOT</code></li>
+      </ul>
+    </li>
+
+    <li><strong>Special Operators:</strong> Used for special conditions.
+      <ul>
+        <li><code>BETWEEN</code>, <code>IN</code>, <code>LIKE</code>, <code>IS NULL</code></li>
+      </ul>
+    </li>
+  </ul>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    SELECT * FROM employees<br>
+    WHERE salary &gt; 30000 AND department IN ('HR', 'IT');
+  </div>
+
+</body>
+</html>

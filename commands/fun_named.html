@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Named Function</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>NAMED FUNCTION</h2>
+
+  <p><strong>Definition:</strong>  
+    A <strong>named function</strong> in PL/SQL is a function that is explicitly created with a name and stored in the database. It can be called whenever needed using its name.
+  </p>
+
+  <p>Named functions are reusable blocks of code that perform a specific task and return a value. These functions are stored permanently and can be accessed later.</p>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    CREATE OR REPLACE FUNCTION function_name (<br>
+    &nbsp;&nbsp;parameter1 [mode] datatype,<br>
+    &nbsp;&nbsp;parameter2 [mode] datatype<br>
+    ) RETURN return_datatype<br>
+    IS<br>
+    &nbsp;&nbsp;-- Variable declarations<br>
+    BEGIN<br>
+    &nbsp;&nbsp;-- Function logic<br>
+    &nbsp;&nbsp;RETURN value;<br>
+    END;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    CREATE OR REPLACE FUNCTION get_square(num IN NUMBER)<br>
+    RETURN NUMBER<br>
+    IS<br>
+    &nbsp;&nbsp;sq NUMBER;<br>
+    BEGIN<br>
+    &nbsp;&nbsp;sq := num * num;<br>
+    &nbsp;&nbsp;RETURN sq;<br>
+    END;
+  </div>
+
+  <p><strong>Calling the Named Function:</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;n NUMBER := 6;<br>
+    &nbsp;&nbsp;result NUMBER;<br>
+    BEGIN<br>
+    &nbsp;&nbsp;result := get_square(n);<br>
+    &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Square is: ' || result);<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Square is: 36
+  </div>
+
+</body>
+</html>

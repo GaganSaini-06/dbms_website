@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>FOREIGN KEY</h2>
+
+    <p><strong>Definition:</strong>
+        A FOREIGN KEY is used to link two tables together.  <br>
+        It is a field (or group of fields) in one table that refers to the PRIMARY KEY in another table.  <br>
+        It ensures referential integrity — meaning values in the foreign key must exist in the referenced primary key.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">
+        CREATE TABLE child_table (
+        column_name datatype,
+        FOREIGN KEY (column_name) REFERENCES parent_table(primary_key_column)
+    );
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">
+        First, create the parent table:  <br>
+        CREATE TABLE department (
+            dept_id INT PRIMARY KEY,
+            dept_name VARCHAR(50)
+        );
+        <br> <br>
+        Now, create the child table with a foreign key: <br>
+        CREATE TABLE student (
+        roll_no INT PRIMARY KEY,
+        name VARCHAR(50),
+        dept_id INT,
+        FOREIGN KEY (dept_id) REFERENCES department(dept_id)
+    );
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> CREATE TABLE Departments (DeptID INT PRIMARY KEY, DeptName VARCHAR(50));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> INSERT INTO Departments VALUES (1, 'BCA');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> INSERT INTO Departments VALUES (2, 'BBA');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> CREATE TABLE students (Rollno INT PRIMARY KEY, Name VARCHAR(50), Age INT, DeptID INT, FOREIGN KEY (DeptID) REFERENCES departments(DeptID));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> INSERT INTO students VALUES (90, 'GAGAN', 19, 1);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> INSERT INTO students VALUES (8, 'NONY', 22, 2);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> INSERT INTO students VALUES (28, 'ANSH', 22, 3);
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`bca2ndyear_4090`.`students`, CONSTRAINT `students_ibfk_1` FOREIGN KEY (`DeptID`) REFERENCES `departments` (`DeptID`))
+</pre>
+    </div>
+
+</body>
+
+</html>

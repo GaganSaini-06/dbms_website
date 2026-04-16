@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IF Statement</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>IF STATEMENT</h2>
+
+  <p><strong>Definition:</strong>  
+    The <code>IF</code> statement in PL/SQL is used to execute a block of code only when a specific condition is true. If the condition is false, the code inside the IF block is skipped.
+  </p>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    IF condition THEN<br>
+      &nbsp;&nbsp;statements;<br>
+    END IF;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    DECLARE<br>
+      &nbsp;&nbsp;salary NUMBER := 25000;<br>
+    BEGIN<br>
+      &nbsp;&nbsp;IF salary &gt; 20000 THEN<br>
+         &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Salary is above 20K');<br>
+      &nbsp;&nbsp;END IF;<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Salary is above 20K
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to TCL</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>INTRODUCTION TO TCL</h2>
+
+  <p><strong>Definition:</strong> TCL stands for <strong>Transaction Control Language</strong>. It is used to manage transactions in a database and control changes made by DML statements.</p>
+
+  <p><strong>Purpose:</strong> TCL commands help in making sure the database remains consistent, even if errors occur during a series of operations.</p>
+
+  <p><strong>Common TCL Commands:</strong></p>
+  <ul>
+    <li><strong>COMMIT</strong> – Saves all the changes made in the current transaction.</li>
+    <li><strong>ROLLBACK</strong> – Reverts the changes made in the current transaction.</li>
+    <li><strong>SAVEPOINT</strong> – Sets a point within a transaction to which a rollback can be done.</li>
+  </ul>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    INSERT INTO students VALUES (101, 'Aman', 20, 'BCA');<br>
+    SAVEPOINT sp1;<br>
+    DELETE FROM students WHERE Rollno = 101;<br>
+    ROLLBACK TO sp1;
+  </div>
+
+</body>
+</html>

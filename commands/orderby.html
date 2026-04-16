@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>ORDER BY CLAUSE</h2>
+
+    <p><strong>Definition:</strong>The ORDER BY clause is used to sort the result of a query in ascending (default) or descending order based on one or more columns.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">SELECT column1, column2
+        FROM table_name
+        ORDER BY column1 [ASC | DESC];
+        </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">SELECT name, marks
+        FROM students
+        ORDER BY marks DESC;
+        </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT Name, Age FROM student_data ORDER BY Age DESC;
++-------+------+
+| Name  | Age  |
++-------+------+
+| Love  |   21 |
+| Kush  |   21 |
+| Ayush |   21 |
+| Gagan |   19 |
+| Honey |   19 |
+|       |   19 |
+| Vinay |   19 |
+| NULL  |   19 |
++-------+------+
+8 rows in set (0.00 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

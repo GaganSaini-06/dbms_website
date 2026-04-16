@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>HAVING CLAUSE</h2>
+
+    <p><strong>Definition:</strong>The HAVING clause is used to filter groups of records created by the GROUP BY clause. It is like the WHERE clause, but HAVING is used with groups/aggregates (not individual rows).
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">SELECT column_name, AGGREGATE_FUNCTION(column_name)
+        FROM table_name
+        GROUP BY column_name
+        HAVING condition;
+        </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">SELECT department, COUNT(*)
+        FROM employees
+        GROUP BY department
+        HAVING COUNT(*) > 5;
+        </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT Age, COUNT(*) 'Total Student' FROM student_data GROUP BY Age HAVING Age > 19;
++------+---------------+
+| Age  | Total Student |
++------+---------------+
+|   21 |             3 |
++------+---------------+
+1 row in set (0.07 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

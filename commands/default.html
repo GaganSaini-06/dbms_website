@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>DEFAULT CONSTRAINT</h2>
+
+    <p><strong>Definition:</strong>
+        The DEFAULT constraint is used to assign a default value to a column when no value is provided during insertion.
+        <br>
+        It helps in reducing the need to always input a value manually for that column.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">
+        CREATE TABLE table_name (
+        column1 datatype,
+        column2 datatype DEFAULT default_value
+    );
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">
+        CREATE TABLE student (
+        roll_no INT PRIMARY KEY,
+        name VARCHAR(50),
+        city VARCHAR(50) DEFAULT 'Delhi'
+    );
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> CREATE TABLE temp_table5 (Rollno INT PRIMARY KEY, Name VARCHAR(50), Age INT, Class VARCHAR(10) DEFAULT 'BCA', Semester INT DEFAULT 4);
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> INSERT INTO temp_table5 (Rollno, Name, Age) VALUES (90, 'Gagan', 19);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> INSERT INTO temp_table5 (Rollno, Name, Age, Class, Semester) VALUES (1, 'Ajay', 19, 'BBA', 6);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> SELECT * FROM temp_table5;
++--------+-------+------+-------+----------+
+| Rollno | Name  | Age  | Class | Semester |
++--------+-------+------+-------+----------+
+|      1 | Ajay  |   19 | BBA   |        6 |
+|     90 | Gagan |   19 | BCA   |        4 |
++--------+-------+------+-------+----------+
+2 rows in set (0.00 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>INNER JOIN</h2>
+
+    <p><strong>Definition:</strong>
+        The INNER JOIN keyword selects records that have matching values in both tables.
+        <br>
+        It returns only the rows where there is a match in both tables.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">
+        SELECT table1.column1, table2.column2, ...
+        FROM table1
+        INNER JOIN table2
+        ON table1.common_column = table2.common_column;
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">
+        SELECT s.name, m.marks  
+        FROM Students s  
+        INNER JOIN Marks m  
+        ON s.student_id = m.student_id;
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM cricket_players;
++----------+--------------+------+
+| PlayerID | Name         | Age  |
++----------+--------------+------+
+|        1 | Virat Kohli  |   35 |
+|        2 | Rohit Sharma |   36 |
+|        3 | M.S. Dhoni   |   43 |
+|        4 | Shubman Gill |   35 |
++----------+--------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM team_info;
++----------+------+
+| PlayerID | Team |
++----------+------+
+|        1 | RCB  |
+|        2 | MI   |
+|        3 | CSK  |
+|        4 | GT   |
++----------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT cricket_players.Name, cricket_players.Age, team_info.Team
+    -> FROM cricket_players
+    -> INNER JOIN team_info
+    -> ON cricket_players.PlayerID = team_info.PlayerID;
++--------------+------+------+
+| Name         | Age  | Team |
++--------------+------+------+
+| Virat Kohli  |   35 | RCB  |
+| Rohit Sharma |   36 | MI   |
+| M.S. Dhoni   |   43 | CSK  |
+| Shubman Gill |   35 | GT   |
++--------------+------+------+
+4 rows in set (0.00 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

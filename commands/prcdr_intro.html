@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to Procedures</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>INTRODUCTION TO PROCEDURES</h2>
+
+  <p><strong>Definition:</strong>  
+    A <strong>Procedure</strong> in PL/SQL is a subprogram that performs a specific task. It is a named block that can take input (parameters), execute a set of statements, and optionally return values using OUT parameters.
+  </p>
+
+  <p><strong>Advantages:</strong></p>
+  <ul>
+    <li>Helps in modular programming</li>
+    <li>Increases code reusability</li>
+    <li>Simplifies debugging and maintenance</li>
+    <li>Improves performance through pre-compilation</li>
+  </ul>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    CREATE OR REPLACE PROCEDURE procedure_name (<br>
+    &nbsp;&nbsp;param1 [IN | OUT | IN OUT] datatype,<br>
+    &nbsp;&nbsp;param2 [IN | OUT | IN OUT] datatype<br>
+    ) IS<br>
+    &nbsp;&nbsp;-- Declarations<br>
+    BEGIN<br>
+    &nbsp;&nbsp;-- Procedure body statements<br>
+    END procedure_name;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    CREATE OR REPLACE PROCEDURE greet_student(name IN VARCHAR2) IS<br>
+    BEGIN<br>
+    &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Hello, ' || name || '!');<br>
+    END;
+  </div>
+
+  <p><strong>Calling the Procedure:</strong></p>
+  <div class="code">
+    BEGIN<br>
+    &nbsp;&nbsp;greet_student('Gagan');<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Hello, Gagan!
+  </div>
+
+</body>
+</html>

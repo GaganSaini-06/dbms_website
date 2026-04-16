@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>PRIMARY KEY</h2>
+
+    <p><strong>Definition:</strong>The PRIMARY KEY is used to uniquely identify each record in a table. <br>
+    It automatically combines NOT NULL and UNIQUE constraints, so no duplicate or null values are allowed in the primary key column.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code"> For single column:  <br>
+        CREATE TABLE table_name (
+            column_name datatype PRIMARY KEY
+        );        
+         </div>
+    <div class="code">
+        For composite key (more than one column):  <br>
+        CREATE TABLE table_name (
+        column1 datatype,
+        column2 datatype,
+        PRIMARY KEY (column1, column2)
+    );
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">
+        CREATE TABLE student (
+        roll_no INT PRIMARY KEY,
+        name VARCHAR(50)
+    );
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> CREATE TABLE temp_table4 (Rollno INT PRIMARY KEY, Name VARCHAR(35), Age INT);
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> INSERT INTO temp_table4 VALUES (90, 'GAGAN', 19);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO temp_table4 VALUES (90, 'ANKIT', 19);
+ERROR 1062 (23000): Duplicate entry '90' for key 'temp_table4.PRIMARY'
+
+mysql> INSERT INTO temp_table4 VALUES (NULL, 'ANKIT', 19);
+ERROR 1048 (23000): Column 'Rollno' cannot be null   
+</pre>
+    </div>
+
+</body>
+
+</html>

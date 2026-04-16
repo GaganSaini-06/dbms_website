@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>LIKE Operator</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>LIKE OPERATOR</h2>
+
+  <p><strong>Definition:</strong> The LIKE operator in SQL is used to search for a specific pattern in a column using characters.</p>
+  
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    SELECT * FROM table_name WHERE column_name LIKE 'pattern';
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">SELECT * FROM students WHERE Name LIKE 'V%';</div>
+  <div class="code">SELECT * FROM students WHERE Name LIKE '%an';</div>
+  <div class="code">SELECT * FROM students WHERE Name LIKE '_u%';</div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    <pre>
+SELECT * FROM students;
++--------+-------+------+-------+--------+
+| Rollno | Name  | Age  | marks | Course |
++--------+-------+------+-------+--------+
+| 4090   | Gagan |   19 |  NULL | BCA    |
+| 4125   | Love  |   21 |  NULL | BCA    |
+| 4130   | Kush  |   21 |  NULL | BCA    |
+| 4132   | Honey |   19 |  NULL | BCA    |
+| 4150   |       |   19 |  NULL | BBA    |
+| 4150   | Ayush |   21 |  NULL | BBA    |
+| 4174   | Vinay |   19 |  NULL | BBA    |
+| 4163   | NULL  |   19 |  NULL | BBA    |
++--------+-------+------+-------+--------+
+8 rows in set (0.09 sec)
+
+mysql> SELECT * FROM students WHERE Name LIKE 'V%';
++--------+--------+------+-------+--------+
+| Rollno | Name   | Age  | marks | Course |
++--------+--------+------+-------+--------+
+| 4174   | Vinay  |   19 |  NULL | BBA    |
++--------+--------+------+-------+--------+
+
+mysql> SELECT * FROM students WHERE Name LIKE '%an';
++--------+--------+------+-------+--------+
+| Rollno | Name   | Age  | marks | Course |
++--------+--------+------+-------+--------+
+| 4090   | Gagan  |   19 |  NULL | BCA    |
++--------+--------+------+-------+--------+
+
+mysql> SELECT * FROM students WHERE Name LIKE '_u%';
++--------+--------+------+-------+--------+
+| Rollno | Name   | Age  | marks | Course |
++--------+--------+------+-------+--------+
+| 4130   | Kush   |   21 |  NULL | BCA    |
++--------+--------+------+-------+--------+
+    </pre>
+  </div>
+
+</body>
+</html>

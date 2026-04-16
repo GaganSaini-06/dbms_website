@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>DELETE COMMAND</h2>
+
+    <p><strong>Definition:</strong>The DELETE command in SQL is used to remove existing records from a table based on a condition.</p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">DELETE FROM table_name  
+        WHERE condition;</div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">DELETE FROM students  
+        WHERE name = 'Gagan';</div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM old_table;
++--------+--------------+------+-------+----------+
+| Rollno | Name         | Age  | Class | Semester |
++--------+--------------+------+-------+----------+
+|      7 | MS DHONI     |   43 | BCA   |        6 |
+|     18 | Virat Kohli  |   37 | BCA   |        6 |
+|     45 | Rohit Sharma |   39 | BBA   |        4 |
++--------+--------------+------+-------+----------+
+3 rows in set (0.00 sec)
+
+mysql> DELETE FROM old_table WHERE Semester = 4;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> SELECT * FROM old_table;
++--------+-------------+------+-------+----------+
+| Rollno | Name        | Age  | Class | Semester |
++--------+-------------+------+-------+----------+
+|      7 | MS DHONI    |   43 | BCA   |        6 |
+|     18 | Virat Kohli |   37 | BCA   |        6 |
++--------+-------------+------+-------+----------+
+2 rows in set (0.00 sec)         
+</pre>
+    </div>
+
+</body>
+
+</html>

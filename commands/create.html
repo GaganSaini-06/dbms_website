@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CREATE Command</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>CREATE COMMAND</h2>
+
+  <p><strong>Definition:</strong> The CREATE command in SQL is used to create new database objects such as databases, tables, views, or indexes.</p>
+  
+  <p><strong>Syntax:</strong></p>
+  <div class="code">CREATE DATABASE database_name;</div>
+  <div class="code">CREATE TABLE table_name (column1 datatype, column2 datatype, ...);</div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">CREATE DATABASE student;</div>
+  <div class="code">CREATE TABLE student (roll_no INT, name VARCHAR(50));</div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code"><pre>
+CREATING DATABASE:-
+
+mysql> create database new;
+Query OK, 1 row affected (0.08 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bca2ndyear_4090    |
+| information_schema |
+| mysql              |
+| new                |
+| performance_schema |
+| stu                |
+| student_4090       |
+| sys                |
+| temp               |
++--------------------+
+9 rows in set (0.00 sec)    
+
+CREATING TABLE:-
+
+mysql> create table new_table (Rollno int, Name varchar(25), Age int);
+Query OK, 0 rows affected (0.11 sec)
+</pre></div>
+  
+</body>
+</html>

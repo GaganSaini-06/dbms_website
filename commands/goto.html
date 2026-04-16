@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GOTO Statement</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>GOTO or JUMPING STATEMENT</h2>
+
+  <p><strong>Definition:</strong>  
+    The <code>GOTO</code> statement in PL/SQL is used to transfer the control unconditionally to a labeled statement or section in the program. It is generally avoided in modern programming as it can make code harder to read and maintain.
+  </p>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    GOTO label_name;<br><br>
+    <<label_name>><br>
+    &nbsp;&nbsp;statements;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;x NUMBER := 1;<br>
+    BEGIN<br>
+    &nbsp;&nbsp;IF x = 1 THEN<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;GOTO skip;<br>
+    &nbsp;&nbsp;END IF;<br><br>
+
+    &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('This will not print');<br><br>
+
+    &nbsp;&nbsp;&lt;&lt;skip&gt;&gt;<br>
+    &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Skipped to here using GOTO');<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+<pre>
+Skipped to here using GOTO
+</pre>
+  </div>
+
+</body>
+</html>

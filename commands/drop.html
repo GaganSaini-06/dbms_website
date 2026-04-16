@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ALTER Command</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>DROP COMMAND</h2>
+
+  <p><strong>Definition:</strong> The DROP command in SQL is used to permanently remove a database object like a table, database, view, or index from the database. Once dropped, all data and structure are lost and cannot be recovered.
+  </p>
+  
+  <p><strong>Syntax:</strong></p>
+  <div class="code">DROP DATABASE database_name;</div>
+  <div class="code">DROP TABLE table_name;</div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">DROP DATABASE school;</div>
+  <div class="code">DROP TABLE student;</div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    <pre>
+DROPPING DATABASE:-
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| bca2ndyear_4090    |
+| information_schema |
+| mysql              |
+| new                |
+| performance_schema |
+| stu                |
+| student_4090       |
+| sys                |
+| temp               |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> DROP DATABASE stu;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| bca2ndyear_4090    |
+| information_schema |
+| mysql              |
+| new                |
+| performance_schema |
+| student_4090       |
+| sys                |
+| temp               |
++--------------------+
+8 rows in set (0.00 sec)
+    </pre> 
+  </div>
+
+</body>
+</html>

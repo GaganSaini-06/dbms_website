@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parameterized Cursor</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>PARAMETERIZED CURSOR</h2>
+
+  <p><strong>Definition:</strong>  
+    A <strong>Parameterized Cursor</strong> allows you to pass parameters to a cursor at the time of opening it. It helps in making the cursor more dynamic by accepting values during execution.
+  </p>
+
+  <p><strong>Use:</strong>  
+    Helpful when you want to fetch data based on different conditions or filter values dynamically.
+  </p>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;CURSOR cursor_name(parameter datatype) IS<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;SELECT columns FROM table_name WHERE column = parameter;<br><br>
+    &nbsp;&nbsp;variable table_name.column%TYPE;<br>
+    BEGIN<br>
+    &nbsp;&nbsp;OPEN cursor_name(value);<br>
+    &nbsp;&nbsp;LOOP<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;FETCH cursor_name INTO variable;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;EXIT WHEN cursor_name%NOTFOUND;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;-- process each row<br>
+    &nbsp;&nbsp;END LOOP;<br>
+    &nbsp;&nbsp;CLOSE cursor_name;<br>
+    END;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;CURSOR c_course(cname VARCHAR2) IS<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;SELECT name FROM students WHERE course = cname;<br>
+    &nbsp;&nbsp;v_name students.name%TYPE;<br>
+    BEGIN<br>
+    &nbsp;&nbsp;OPEN c_course('BCA');<br>
+    &nbsp;&nbsp;LOOP<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;FETCH c_course INTO v_name;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;EXIT WHEN c_course%NOTFOUND;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Student Name: ' || v_name);<br>
+    &nbsp;&nbsp;END LOOP;<br>
+    &nbsp;&nbsp;CLOSE c_course;<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Student Name: Gagan<br>
+    Student Name: Love<br>
+    Student Name: Kush
+  </div>
+
+</body>
+</html>

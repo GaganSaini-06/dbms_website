@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>INSERT COMMAND</h2>
+
+    <p><strong>Definition:</strong>The INSERT command in SQL is used to add new rows (records) into a table in a database.</p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">INSERT INTO table_name (column1, column2, ...)  
+        VALUES (value1, value2, ...);
+        </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">INSERT INTO students (name, age)  
+        VALUES ('Gagan', 19);
+        </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM old_table;
++--------+-------------+------+-------+----------+
+| Rollno | Name        | Age  | Class | Semester |
++--------+-------------+------+-------+----------+
+|      7 | MS DHONI    |   43 | BCA   |        4 |
+|     18 | Virat Kohli |   37 | BCA   |        4 |
++--------+-------------+------+-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO old_table (Rollno, Name, Age, Class, Semester) VALUES (45, 'Rohit Sharma', 39, 'BBA', 4);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> SELECT * FROM old_table;
++--------+--------------+------+-------+----------+
+| Rollno | Name         | Age  | Class | Semester |
++--------+--------------+------+-------+----------+
+|      7 | MS DHONI     |   43 | BCA   |        4 |
+|     18 | Virat Kohli  |   37 | BCA   |        4 |
+|     45 | Rohit Sharma |   39 | BBA   |        4 |
++--------+--------------+------+-------+----------+
+3 rows in set (0.00 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

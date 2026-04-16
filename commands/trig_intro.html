@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to Triggers</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>INTRODUCTION TO TRIGGERS</h2>
+
+  <p><strong>Definition:</strong> A <strong>Trigger</strong> in PL/SQL is a stored program that is automatically executed or fired when certain events occur on a particular table or view. These events can be <code>INSERT</code>, <code>UPDATE</code>, or <code>DELETE</code>.</p>
+
+  <p><strong>Why Triggers?</strong></p>
+  <ul>
+    <li>To enforce complex business rules automatically.</li>
+    <li>To track changes in table values (auditing).</li>
+    <li>To perform validation before or after data modification.</li>
+    <li>To automatically generate values or logs.</li>
+  </ul>
+
+  <p><strong>Types of Triggers:</strong></p>
+  <ul>
+    <li><strong>Before Trigger</strong> – Executes before the triggering DML event.</li>
+    <li><strong>After Trigger</strong> – Executes after the triggering DML event.</li>
+    <li><strong>Row-level Trigger</strong> – Executes for each row affected.</li>
+    <li><strong>Statement-level Trigger</strong> – Executes once for the triggering event.</li>
+  </ul>
+
+  <p><strong>Basic Syntax:</strong></p>
+  <div class="code">
+    <pre>
+CREATE OR REPLACE TRIGGER trigger_name
+BEFORE | AFTER INSERT | UPDATE | DELETE
+ON table_name
+[FOR EACH ROW]
+BEGIN
+  -- Trigger logic here
+END;
+    </pre>
+  </div>
+
+  <p><strong>Note:</strong> Triggers do not accept parameters and are automatically executed when the specified condition is met.</p>
+
+</body>
+</html>

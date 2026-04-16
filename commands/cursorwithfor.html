@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cursor with FOR Loop</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>CURSOR WITH FOR LOOP</h2>
+
+  <p><strong>Definition:</strong>  
+    A <strong>Cursor with FOR Loop</strong> simplifies cursor usage by automatically opening, fetching, and closing the cursor. No explicit `OPEN`, `FETCH`, or `CLOSE` statements are required.
+  </p>
+
+  <p><strong>Benefits:</strong>  
+    Makes code cleaner and reduces chances of cursor mismanagement.
+  </p>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    FOR record_variable IN cursor_name LOOP<br>
+    &nbsp;&nbsp;-- Statements using record_variable<br>
+    END LOOP;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;CURSOR c_students IS<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;SELECT name, course FROM students;<br>
+    BEGIN<br>
+    &nbsp;&nbsp;FOR student_rec IN c_students LOOP<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Name: ' || student_rec.name || ', Course: ' || student_rec.course);<br>
+    &nbsp;&nbsp;END LOOP;<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Name: Gagan, Course: BCA<br>
+    Name: Love, Course: BCA<br>
+    Name: Kush, Course: BCA<br>
+    Name: Ayush, Course: BBA
+  </div>
+
+</body>
+</html>

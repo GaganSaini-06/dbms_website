@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>UPDATE COMMAND</h2>
+
+    <p><strong>Definition:</strong>The UPDATE command in SQL is used to modify or change the existing records in a table.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">UPDATE table_name  
+        SET column1 = value1, column2 = value2, ...  
+        WHERE condition;
+        </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">UPDATE students  
+        SET age = 20  
+        WHERE name = 'Gagan';
+        </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM old_table;
++--------+--------------+------+-------+----------+
+| Rollno | Name         | Age  | Class | Semester |
++--------+--------------+------+-------+----------+
+|      7 | MS DHONI     |   43 | BCA   |        4 |
+|     18 | Virat Kohli  |   37 | BCA   |        4 |
+|     45 | Rohit Sharma |   39 | BBA   |        4 |
++--------+--------------+------+-------+----------+
+3 rows in set (0.00 sec)
+
+mysql> UPDATE old_table SET Semester = 6 WHERE Class = 'BCA';
+Query OK, 2 rows affected (0.08 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> SELECT * FROM old_table;
++--------+--------------+------+-------+----------+
+| Rollno | Name         | Age  | Class | Semester |
++--------+--------------+------+-------+----------+
+|      7 | MS DHONI     |   43 | BCA   |        6 |
+|     18 | Virat Kohli  |   37 | BCA   |        6 |
+|     45 | Rohit Sharma |   39 | BBA   |        4 |
++--------+--------------+------+-------+----------+
+3 rows in set (0.00 sec)          
+</pre>
+    </div>
+
+</body>
+
+</html>

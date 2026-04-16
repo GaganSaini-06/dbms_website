@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to Constraints</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>INTRODUCTION TO CONSTRAINTS</h2>
+
+  <p><strong>Definition:</strong> Constraints in SQL are rules applied to table columns to ensure the accuracy, reliability, and integrity of the data. They help enforce data standards and prevent invalid data from being entered into the database.</p>
+
+  <p><strong>Types of SQL Constraints:</strong></p>
+  <ul>
+    <li><strong>NOT NULL:</strong> Ensures that a column cannot have a NULL value.</li>
+    <li><strong>UNIQUE:</strong> Ensures all values in a column are different.</li>
+    <li><strong>PRIMARY KEY:</strong> Uniquely identifies each record in a table. Combines NOT NULL and UNIQUE.</li>
+    <li><strong>FOREIGN KEY:</strong> Maintains referential integrity by linking to the PRIMARY KEY of another table.</li>
+    <li><strong>CHECK:</strong> Ensures that all values in a column satisfy a specific condition.</li>
+    <li><strong>DEFAULT:</strong> Sets a default value for a column when no value is specified.</li>
+  </ul>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    CREATE TABLE students (<br>
+    &nbsp;&nbsp;student_id NUMBER PRIMARY KEY,<br>
+    &nbsp;&nbsp;name VARCHAR2(50) NOT NULL,<br>
+    &nbsp;&nbsp;age NUMBER CHECK (age &gt;= 18),<br>
+    &nbsp;&nbsp;department_id NUMBER,<br>
+    &nbsp;&nbsp;FOREIGN KEY (department_id) REFERENCES departments(dept_id)<br>
+    );
+  </div>
+
+</body>
+</html>

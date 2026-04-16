@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to Views</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>INTRODUCTION TO VIEWS</h2>
+
+  <p><strong>Definition:</strong> A <b>View</b> in SQL is a virtual table that is based on the result of a SELECT query. It does not store data physically but displays data stored in tables.</p>
+
+  <p><strong>Purpose of Views:</strong></p>
+  <ul>
+    <li>To simplify complex queries.</li>
+    <li>To provide a layer of security by restricting access to specific columns or rows.</li>
+    <li>To present a consistent interface even when the underlying table structures change.</li>
+  </ul>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    CREATE VIEW view_name AS<br>
+    SELECT column1, column2, ...<br>
+    FROM table_name<br>
+    WHERE condition;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    CREATE VIEW high_salary_employees AS<br>
+    SELECT name, salary<br>
+    FROM employees<br>
+    WHERE salary &gt; 50000;
+  </div>
+
+  <p><strong>Accessing Data from a View:</strong></p>
+  <div class="code">
+    SELECT * FROM high_salary_employees;
+  </div>
+
+  <p><strong>Note:</strong> Views can be <b>read-only</b> or <b>updatable</b> depending on how they are created.</p>
+
+</body>
+</html>

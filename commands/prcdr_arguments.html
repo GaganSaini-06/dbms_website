@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arguments in Procedure</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>ARGUMENTS IN PROCEDURE</h2>
+
+  <p><strong>Definition:</strong>  
+    Arguments in a procedure are used to pass values between the calling program and the procedure. They help in making procedures dynamic and reusable.
+  </p>
+
+  <p><strong>Types of Arguments:</strong></p>
+  <ul>
+    <li><strong>IN:</strong> Used to pass value **into** the procedure (default).</li>
+    <li><strong>OUT:</strong> Used to get value **from** the procedure.</li>
+    <li><strong>IN OUT:</strong> Used to pass value **in and out** of the procedure.</li>
+  </ul>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    CREATE OR REPLACE PROCEDURE procedure_name(<br>
+    &nbsp;&nbsp;arg1 IN datatype,<br>
+    &nbsp;&nbsp;arg2 OUT datatype,<br>
+    &nbsp;&nbsp;arg3 IN OUT datatype)<br>
+    IS<br>
+    BEGIN<br>
+    &nbsp;&nbsp;-- Code using arguments<br>
+    END procedure_name;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    CREATE OR REPLACE PROCEDURE square_number(<br>
+    &nbsp;&nbsp;n IN NUMBER,<br>
+    &nbsp;&nbsp;square OUT NUMBER)<br>
+    IS<br>
+    BEGIN<br>
+    &nbsp;&nbsp;square := n * n;<br>
+    END;
+  </div>
+
+  <p><strong>Calling the Procedure:</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;x NUMBER := 5;<br>
+    &nbsp;&nbsp;y NUMBER;<br>
+    BEGIN<br>
+    &nbsp;&nbsp;square_number(x, y);<br>
+    &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Square is: ' || y);<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Square is: 25
+  </div>
+
+</body>
+</html>

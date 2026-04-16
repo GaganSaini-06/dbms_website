@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to Cursors</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>INTRODUCTION TO CURSORS</h2>
+
+  <p><strong>Definition:</strong>  
+    A <code>Cursor</code> in PL/SQL is a pointer to the memory area (called context area) where SQL statements are executed. Cursors allow row-by-row processing of query results.
+  </p>
+
+  <p><strong>Why Use Cursors?</strong></p>
+  <ul>
+    <li>To process multiple rows returned by a SQL query one at a time.</li>
+    <li>To perform operations on each individual row.</li>
+    <li>To have better control over query execution and data handling.</li>
+  </ul>
+
+  <p><strong>Types of Cursors:</strong></p>
+  <ul>
+    <li><strong>1. Implicit Cursor:</strong> 
+      Automatically created by PL/SQL when a SQL statement like INSERT, DELETE, UPDATE, or SELECT (single row) is executed.
+    </li>
+    <li><strong>2. Explicit Cursor:</strong> 
+      Defined by the user to handle queries that return more than one row. Requires opening, fetching, and closing manually.
+    </li>
+    <li><strong>3. Parameterized Cursor:</strong> 
+      A user-defined cursor that accepts parameters to filter data dynamically at runtime. It allows the same cursor to be reused with different input values.
+    </li>
+  </ul>
+
+  <p><strong>Cursor Lifecycle:</strong></p>
+  <ol>
+    <li><code>DECLARE</code> the Cursor</li>
+    <li><code>OPEN</code> the Cursor</li>
+    <li><code>FETCH</code> data from Cursor</li>
+    <li><code>CLOSE</code> the Cursor</li>
+  </ol>
+
+  <p><strong>Example (Just Declaration):</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;CURSOR emp_cursor IS<br>
+    &nbsp;&nbsp;SELECT emp_id, emp_name FROM employees;<br>
+  </div>
+
+</body>
+</html>

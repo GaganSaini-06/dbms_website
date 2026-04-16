@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PL/SQL Packages</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>PACKAGES</h2>
+
+  <p><strong>Definition:</strong>  
+    A <strong>package</strong> in PL/SQL is a collection of related procedures, functions, variables, cursors, and other PL/SQL constructs grouped together in a single unit. It consists of two parts: the <strong>package specification</strong> and the <strong>package body</strong>.
+  </p>
+
+  <p><strong>Advantages of Packages:</strong></p>
+  <ul>
+    <li>Modularity: Related code is grouped together.</li>
+    <li>Reusability: Can be used across different programs.</li>
+    <li>Performance: Loaded into memory once and used many times.</li>
+    <li>Encapsulation: Hides implementation details from users.</li>
+  </ul>
+
+  <p><strong>Syntax:</strong> (Specification)</p>
+  <div class="code">
+    CREATE OR REPLACE PACKAGE package_name IS<br>
+    &nbsp;&nbsp;-- Procedure and function declarations<br>
+    &nbsp;&nbsp;PROCEDURE hello;<br>
+    END package_name;
+  </div>
+
+  <p><strong>Syntax:</strong> (Body)</p>
+  <div class="code">
+    CREATE OR REPLACE PACKAGE BODY package_name IS<br>
+    &nbsp;&nbsp;PROCEDURE hello IS<br>
+    &nbsp;&nbsp;BEGIN<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Hello from package!');<br>
+    &nbsp;&nbsp;END hello;<br>
+    END package_name;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    -- Create package specification<br>
+    CREATE OR REPLACE PACKAGE greet_pkg IS<br>
+    &nbsp;&nbsp;PROCEDURE greet;<br>
+    END greet_pkg;<br><br>
+
+    -- Create package body<br>
+    CREATE OR REPLACE PACKAGE BODY greet_pkg IS<br>
+    &nbsp;&nbsp;PROCEDURE greet IS<br>
+    &nbsp;&nbsp;BEGIN<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Hello Gagan!');<br>
+    &nbsp;&nbsp;END greet;<br>
+    END greet_pkg;
+  </div>
+
+  <p><strong>Calling the Procedure from Package:</strong></p>
+  <div class="code">
+    BEGIN<br>
+    &nbsp;&nbsp;greet_pkg.greet;<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Hello Gagan!
+  </div>
+
+</body>
+</html>

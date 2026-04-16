@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Implicit Cursor</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>IMPLICIT CURSOR</h2>
+
+  <p><strong>Definition:</strong>  
+    An <strong>Implicit Cursor</strong> is automatically created by Oracle whenever a DML statement (INSERT, UPDATE, DELETE) or a SELECT statement that returns only one row is executed. These cursors are managed internally by PL/SQL and don't require explicit declaration or control.
+  </p>
+
+  <p><strong>Cursor Attributes:</strong></p>
+  <ul>
+    <li><code>%FOUND</code> – Returns TRUE if the statement affects at least one row.</li>
+    <li><code>%NOTFOUND</code> – Returns TRUE if no rows were affected.</li>
+    <li><code>%ROWCOUNT</code> – Number of rows affected.</li>
+    <li><code>%ISOPEN</code> – Always FALSE for implicit cursors (they close automatically).</li>
+  </ul>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;v_count NUMBER;<br>
+    BEGIN<br>
+    &nbsp;&nbsp;UPDATE students SET marks = 80 WHERE course = 'BCA';<br>
+    &nbsp;&nbsp;v_count := SQL%ROWCOUNT;<br>
+    &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Rows Updated: ' || v_count);<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Rows Updated: 3
+  </div>
+
+</body>
+</html>

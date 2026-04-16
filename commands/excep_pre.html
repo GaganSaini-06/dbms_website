@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Predefined Exceptions</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>PREDEFINED EXCEPTIONS</h2>
+
+  <p><strong>Definition:</strong> Predefined exceptions are built-in exceptions in PL/SQL that are automatically raised when certain common error conditions occur during execution.</p>
+
+  <p>These exceptions are implicitly declared by Oracle and can be handled in the EXCEPTION section of a PL/SQL block without needing to define them manually.</p>
+
+  <p><strong>Common Predefined Exceptions:</strong></p>
+  <ul>
+    <li><code>NO_DATA_FOUND</code>: Raised when a SELECT INTO statement returns no rows.</li>
+    <li><code>TOO_MANY_ROWS</code>: Raised when a SELECT INTO statement returns more than one row.</li>
+    <li><code>ZERO_DIVIDE</code>: Raised when a number is divided by zero.</li>
+    <li><code>INVALID_CURSOR</code>: Raised when operations are attempted on an unopened cursor.</li>
+    <li><code>CUSTOMER_ALREADY_EXISTS</code>: This is not a predefined exception; just showing that predefined exceptions are already named by Oracle.</li>
+  </ul>
+
+  <p><strong>Syntax & Example:</strong></p>
+  <div class="code">
+    <pre>
+DECLARE
+  v_num1 NUMBER := 10;
+  v_num2 NUMBER := 0;
+  v_result NUMBER;
+BEGIN
+  v_result := v_num1 / v_num2;  -- This will raise ZERO_DIVIDE
+  DBMS_OUTPUT.PUT_LINE('Result: ' || v_result);
+
+EXCEPTION
+  WHEN ZERO_DIVIDE THEN
+    DBMS_OUTPUT.PUT_LINE('Error: Cannot divide by zero!');
+END;
+    </pre>
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    <pre>
+Error: Cannot divide by zero!
+    </pre>
+  </div>
+
+</body>
+</html>

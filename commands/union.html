@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>UNION</h2>
+
+    <p><strong>Definition:</strong>
+        The UNION operator in SQL is used to combine the result of two SELECT queries and returns only unique rows (duplicates are removed by default).
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">  
+        <pre>
+SELECT column1, column2 FROM table1  
+UNION  
+SELECT column1, column2 FROM table2;
+
+Note:
+Both SELECT statements must have same number of columns,
+And the columns should have compatible data types.
+        </pre>
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">
+        <pre>
+Query:    SELECT name FROM team1
+          UNION
+          SELECT name FROM team2;
+
+team1 = {Rohit, Virat, Gill}
+team2 = {Gill, Smith, Stokes}
+
+Result (UNION) = {Rohit, Virat, Gill, Smith, Stokes}
+Combines both tables, removes duplicates.
+        </pre>
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM cricket_players;
++----------+--------------+------+
+| PlayerID | Name         | Age  |
++----------+--------------+------+
+|        1 | Virat Kohli  |   35 |
+|        2 | Rohit Sharma |   36 |
+|        3 | M.S. Dhoni   |   43 |
+|        4 | Shubman Gill |   35 |
++----------+--------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM cricket_players2;
++----------+---------------+------+
+| PlayerID | Name          | Age  |
++----------+---------------+------+
+|        1 | Virat Kohli   |   35 |
+|        2 | Rohit Sharma  |   36 |
+|        3 | M.S. Dhoni    |   43 |
+|        4 | Hardik Pandya |   30 |
++----------+---------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT Name, Age FROM cricket_players
+    -> UNION
+    -> SELECT Name, Age FROM cricket_players2;
++---------------+------+
+| Name          | Age  |
++---------------+------+
+| Virat Kohli   |   35 |
+| Rohit Sharma  |   36 |
+| M.S. Dhoni    |   43 |
+| Shubman Gill  |   35 |
+| Hardik Pandya |   30 |
++---------------+------+
+5 rows in set (0.00 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

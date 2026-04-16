@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FOR Loop</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>FOR LOOP</h2>
+
+  <p><strong>Definition:</strong>  
+    The <code>FOR LOOP</code> in PL/SQL is used to execute a block of code a specific number of times. It automatically handles the initialization, condition-checking, and incrementing.
+  </p>
+
+  <p><strong>Syntax (IN):</strong></p>
+  <div class="code">
+    FOR counter IN [REVERSE] start..end LOOP<br>
+      &nbsp;&nbsp;statements;<br>
+    END LOOP;
+  </div>
+
+  <p><strong>Example (Forward Loop):</strong></p>
+  <div class="code">
+    DECLARE<br>
+      &nbsp;&nbsp;i NUMBER;<br>
+    BEGIN<br>
+      &nbsp;&nbsp;FOR i IN 1..5 LOOP<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Value of i: ' || i);<br>
+      &nbsp;&nbsp;END LOOP;<br>
+    END;
+  </div>
+
+  <p><strong>Example (Reverse Loop):</strong></p>
+  <div class="code">
+    DECLARE<br>
+      &nbsp;&nbsp;i NUMBER;<br>
+    BEGIN<br>
+      &nbsp;&nbsp;FOR i IN REVERSE 5..1 LOOP<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Reverse i: ' || i);<br>
+      &nbsp;&nbsp;END LOOP;<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+<pre>
+Value of i: 1  
+Value of i: 2  
+Value of i: 3  
+Value of i: 4  
+Value of i: 5  
+
+Reverse i: 5  
+Reverse i: 4  
+Reverse i: 3  
+Reverse i: 2  
+Reverse i: 1
+</pre>
+  </div>
+
+</body>
+</html>

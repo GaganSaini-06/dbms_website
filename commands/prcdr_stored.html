@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stored Procedure</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>STORED PROCEDURE</h2>
+
+  <p><strong>Definition:</strong>  
+    A <strong>Stored Procedure</strong> in PL/SQL is a precompiled block of code stored permanently in the database that can be executed when needed. It helps in reusability and better performance.
+  </p>
+
+  <p><strong>Advantages of Stored Procedures:</strong></p>
+  <ul>
+    <li>Improves performance due to precompilation</li>
+    <li>Reduces code duplication</li>
+    <li>Enhances security and integrity</li>
+    <li>Easy to maintain and modify</li>
+  </ul>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    CREATE OR REPLACE PROCEDURE procedure_name<br>
+    IS<br>
+    &nbsp;&nbsp;-- Declarations<br>
+    BEGIN<br>
+    &nbsp;&nbsp;-- Executable statements<br>
+    END procedure_name;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    CREATE OR REPLACE PROCEDURE show_message<br>
+    IS<br>
+    BEGIN<br>
+    &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('This is a stored procedure.');<br>
+    END show_message;
+  </div>
+
+  <p><strong>Calling the Stored Procedure:</strong></p>
+  <div class="code">
+    BEGIN<br>
+    &nbsp;&nbsp;show_message;<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    This is a stored procedure.
+  </div>
+
+</body>
+</html>

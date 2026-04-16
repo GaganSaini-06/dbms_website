@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to Aggregate Functions</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>INTRODUCTION TO AGGREGATE FUNCTIONS</h2>
+
+  <p><strong>Definition:</strong> Aggregate functions in SQL perform a calculation on a set of values and return a single value. These functions are mostly used with the <code>GROUP BY</code> clause in <code>SELECT</code> statements.</p>
+
+  <p><strong>Common Aggregate Functions:</strong></p>
+  <ul>
+    <li><strong>COUNT():</strong> Returns the number of rows.</li>
+    <li><strong>SUM():</strong> Returns the total sum of a numeric column.</li>
+    <li><strong>AVG():</strong> Returns the average value of a numeric column.</li>
+    <li><strong>MIN():</strong> Returns the smallest value in a column.</li>
+    <li><strong>MAX():</strong> Returns the largest value in a column.</li>
+  </ul>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    SELECT department, COUNT(*) AS total_employees,<br>
+    AVG(salary) AS average_salary<br>
+    FROM employees<br>
+    GROUP BY department;
+  </div>
+
+</body>
+</html>

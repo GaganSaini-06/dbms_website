@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>NOT NULL CONSTRAINT</h2>
+
+    <p><strong>Definition:</strong>The NOT NULL constraint ensures that a column cannot have a NULL (empty) value. It is used when you want to make sure a field always has data.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">CREATE TABLE table_name (
+        column_name datatype NOT NULL
+    );
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">
+        CREATE TABLE student (
+        roll_no INT NOT NULL,
+        name VARCHAR(50) NOT NULL
+    );
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> CREATE TABLE temp_table (Rollno INT NOT NULL, Name VARCHAR(35) NOT NULL, Age INT);
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> INSERT INTO temp_table VALUES (90, 'GAGAN', NULL);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> INSERT INTO temp_table VALUES (NULL, 'YUVI', 23);
+ERROR 1048 (23000): Column 'Rollno' cannot be null          
+</pre>
+    </div>
+
+</body>
+
+</html>

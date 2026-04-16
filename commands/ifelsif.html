@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IF-ELSIF-ELSE Statement</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>IF-ELSIF-ELSE STATEMENT</h2>
+
+  <p><strong>Definition:</strong>  
+    The <code>IF-ELSIF-ELSE</code> statement in PL/SQL is used when you have multiple conditions to evaluate. It checks each condition one by one and executes the block of the first condition that is true. If none of the conditions are true, it executes the ELSE block.
+  </p>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    IF condition1 THEN<br>
+      &nbsp;&nbsp;statements;<br>
+    ELSIF condition2 THEN<br>
+      &nbsp;&nbsp;statements;<br>
+    ELSIF condition3 THEN<br>
+      &nbsp;&nbsp;statements;<br>
+    ELSE<br>
+      &nbsp;&nbsp;statements;<br>
+    END IF;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    DECLARE<br>
+      &nbsp;&nbsp;marks NUMBER := 85;<br>
+    BEGIN<br>
+      &nbsp;&nbsp;IF marks &gt;= 90 THEN<br>
+         &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Grade A');<br>
+      &nbsp;&nbsp;ELSIF marks &gt;= 75 THEN<br>
+         &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Grade B');<br>
+      &nbsp;&nbsp;ELSIF marks &gt;= 60 THEN<br>
+         &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Grade C');<br>
+      &nbsp;&nbsp;ELSE<br>
+         &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Grade D');<br>
+      &nbsp;&nbsp;END IF;<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Grade B
+  </div>
+
+</body>
+</html>

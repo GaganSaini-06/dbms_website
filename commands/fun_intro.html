@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to Functions</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>INTRODUCTION TO FUNCTIONS</h2>
+
+  <p><strong>Definition:</strong>  
+    A function in PL/SQL is a named block that performs a specific task and returns a single value. Functions help in code reusability and modular programming.
+  </p>
+
+  <p><strong>Purpose:</strong>  
+    Functions are mainly used when we want to perform some computation or operation and get back a result.
+  </p>
+
+  <p><strong>Differences Between Procedure and Function:</strong></p>
+  <ul>
+    <li>Function **must return** a value, Procedure **may not return** a value.</li>
+    <li>Function can be used in **SELECT** statements, Procedure cannot.</li>
+    <li>Function can be called from **SQL**, Procedure generally cannot.</li>
+  </ul>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    CREATE OR REPLACE FUNCTION function_name(<br>
+    &nbsp;&nbsp;parameter1 [mode] datatype,<br>
+    &nbsp;&nbsp;...<br>
+    ) RETURN return_datatype<br>
+    IS<br>
+    &nbsp;&nbsp;-- Variable declarations<br>
+    BEGIN<br>
+    &nbsp;&nbsp;-- Function logic<br>
+    &nbsp;&nbsp;RETURN value;<br>
+    END;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    CREATE OR REPLACE FUNCTION get_area(radius IN NUMBER)<br>
+    RETURN NUMBER<br>
+    IS<br>
+    &nbsp;&nbsp;area NUMBER;<br>
+    BEGIN<br>
+    &nbsp;&nbsp;area := 3.14 * radius * radius;<br>
+    &nbsp;&nbsp;RETURN area;<br>
+    END;
+  </div>
+
+  <p><strong>Calling the Function:</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;r NUMBER := 5;<br>
+    &nbsp;&nbsp;a NUMBER;<br>
+    BEGIN<br>
+    &nbsp;&nbsp;a := get_area(r);<br>
+    &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Area is: ' || a);<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Area is: 78.5
+  </div>
+
+</body>
+</html>

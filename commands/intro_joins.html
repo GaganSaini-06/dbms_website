@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to Joins</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>INTRODUCTION TO JOINS</h2>
+
+  <p><strong>Definition:</strong> A <b>JOIN</b> is used in SQL to combine rows from two or more tables based on a related column between them. It allows you to retrieve data from multiple tables in a single query.</p>
+
+  <p><strong>Why Use Joins?</strong></p>
+  <ul>
+    <li>To fetch related data from multiple tables.</li>
+    <li>To reduce data redundancy and improve performance.</li>
+    <li>To enforce logical relationships between entities.</li>
+  </ul>
+
+  <p><strong>Types of Joins:</strong></p>
+  <ul>
+    <li><strong>INNER JOIN:</strong> Returns only the matching rows from both tables.</li>
+    <li><strong>LEFT JOIN (LEFT OUTER JOIN):</strong> Returns all rows from the left table and matched rows from the right table.</li>
+    <li><strong>RIGHT JOIN (RIGHT OUTER JOIN):</strong> Returns all rows from the right table and matched rows from the left table.</li>
+    <li><strong>FULL JOIN (FULL OUTER JOIN):</strong> Returns rows when there is a match in either left or right table.</li>
+    <li><strong>CROSS JOIN:</strong> Returns the Cartesian product of both tables (every row of the first table with every row of the second).</li>
+  </ul>
+
+  <p><strong>Example (INNER JOIN):</strong></p>
+  <div class="code">
+    SELECT employees.name, departments.dept_name<br>
+    FROM employees<br>
+    INNER JOIN departments<br>
+    ON employees.dept_id = departments.dept_id;
+  </div>
+
+</body>
+</html>

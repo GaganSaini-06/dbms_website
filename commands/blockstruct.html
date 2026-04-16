@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PL/SQL Block Structure</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>PL/SQL BLOCK STRUCTURE</h2>
+
+  <p><strong>What is a PL/SQL Block?</strong>  
+  A PL/SQL program is structured into blocks. Each block forms a unit of code that can include declarations, execution logic, and error handling. These blocks can be nested inside each other.</p>
+
+  <p><strong>There are three main sections of a PL/SQL Block:</strong></p>
+  <ul>
+    <li><strong>Declaration Section:</strong> Used to declare variables, constants, cursors, etc. (optional)</li>
+    <li><strong>Execution Section:</strong> Contains the main logic or SQL statements. (mandatory)</li>
+    <li><strong>Exception Section:</strong> Handles runtime errors or exceptions. (optional)</li>
+  </ul>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    DECLARE <br>
+    &nbsp;&nbsp;-- Variable declarations (optional) <br>
+    BEGIN <br>
+    &nbsp;&nbsp;-- Main execution code (required) <br>
+    EXCEPTION <br>
+    &nbsp;&nbsp;-- Error handling code (optional) <br>
+    END;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;num NUMBER := 10;<br>
+    BEGIN<br>
+    &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Number is: ' || num);<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Number is: 10
+  </div>
+
+</body>
+</html>

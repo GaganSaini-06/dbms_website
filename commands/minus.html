@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>MINUS(DIFFERENCE)</h2>
+
+    <p><strong>Definition:</strong>
+        The MINUS operator in SQL returns the rows from the first SELECT query that are not present in the second SELECT query. It removes duplicates and returns only unique rows from the first set that don't exist in the second set.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code"> <pre>
+SELECT column1, column2 FROM table1  
+MINUS  
+SELECT column1, column2 FROM table2;
+    </pre>
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">
+        <pre>
+Query:- SELECT name FROM team1
+        MINUS
+        SELECT name FROM team2;
+
+team1 = {Rohit, Virat, Gill}
+team2 = {Gill, Smith, Stokes}
+
+Result (MINUS) = {Rohit, Virat}
+Shows data in team1 that is not in team2.
+
+        </pre>
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+          
+</pre>
+    </div>
+mysql> SELECT * FROM cricket_players;
++----------+--------------+------+
+| PlayerID | Name         | Age  |
++----------+--------------+------+
+|        1 | Virat Kohli  |   35 |
+|        2 | Rohit Sharma |   36 |
+|        3 | M.S. Dhoni   |   43 |
+|        4 | Shubman Gill |   35 |
++----------+--------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM cricket_players2;
++----------+---------------+------+
+| PlayerID | Name          | Age  |
++----------+---------------+------+
+|        1 | Virat Kohli   |   35 |
+|        2 | Rohit Sharma  |   36 |
+|        3 | M.S. Dhoni    |   43 |
+|        4 | Hardik Pandya |   30 |
++----------+---------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT Name, Age FROM cricket_players
+    -> WHERE (Name, Age) NOT IN (
+    ->   SELECT Name, Age FROM cricket_players2
+    -> );
++--------------+------+
+| Name         | Age  |
++--------------+------+
+| Shubman Gill |   35 |
++--------------+------+
+1 row in set (0.00 sec)
+</body>
+
+</html>

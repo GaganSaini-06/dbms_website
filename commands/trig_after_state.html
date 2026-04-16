@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>After Statement Level Trigger</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>AFTER STATEMENT LEVEL TRIGGER</h2>
+
+  <p><strong>Definition:</strong>  
+  An <strong>AFTER STATEMENT LEVEL TRIGGER</strong> is executed <strong>once after the entire SQL operation</strong> (INSERT, UPDATE, or DELETE) has been completed, regardless of the number of rows affected.</p>
+
+  <p><strong>Use Case:</strong>  
+  This type of trigger is useful for actions that need to happen <strong>after a DML operation</strong> is completed — like logging actions, updating audit tables, or sending notifications.</p>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    <pre>
+CREATE OR REPLACE TRIGGER trigger_name  
+AFTER INSERT OR UPDATE OR DELETE  
+ON table_name  
+BEGIN  
+  -- Trigger logic here  
+END;
+    </pre>
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <p>This trigger prints a message after any row is deleted from the <code>employees</code> table:</p>
+  <div class="code">
+    <pre>
+CREATE OR REPLACE TRIGGER log_after_delete  
+AFTER DELETE ON employees  
+BEGIN  
+  DBMS_OUTPUT.PUT_LINE('Delete operation has been completed');  
+END;
+    </pre>
+  </div>
+
+  <p><strong>Key Points:</strong></p>
+  <ul>
+    <li>Fires only once for the whole DML operation, not for each row.</li>
+    <li>Cannot access <code>:NEW</code> or <code>:OLD</code> values.</li>
+    <li>Used for global-level activities after statement execution.</li>
+  </ul>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RENAME Command</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>RENAME COMMAND</h2>
+
+  <p><strong>Definition:</strong> 
+    The RENAME command in SQL is used to change the name of an existing database object like a table. It helps you rename a table without changing its structure or data.
+</p>
+  
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    RENAME TABLE old_table_name TO new_table_name;
+</div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    RENAME TABLE student TO student_data;
+</div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+   <pre>
+mysql> SHOW TABLES;
++---------------+
+| Tables_in_new |
++---------------+
+| new_table     |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> RENAME TABLE new_table TO old_table;
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> SHOW TABLES;
++---------------+
+| Tables_in_new |
++---------------+
+| old_table     |
++---------------+
+1 row in set (0.00 sec)
+   </pre>
+</div>
+
+</body>
+</html>

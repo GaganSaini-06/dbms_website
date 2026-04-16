@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>INTERSECT</h2>
+
+    <p><strong>Definition:</strong>
+        The INTERSECT operator is used to return only the common rows between two SELECT statements. It eliminates duplicates automatically and returns only the rows that appear in both result sets.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">
+        <pre>
+SELECT column1, column2 FROM table1  
+INTERSECT  
+SELECT column1, column2 FROM table2;
+
+Note: Both SELECT statements must have the same number of columns and same data types in the same order.
+</pre>
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">
+        <pre>
+Query:-  SELECT name FROM team1
+         INTERSECT
+         SELECT name FROM team2;
+
+team1 = {Rohit, Virat, Gill}
+team2 = {Gill, Smith, Stokes}
+
+Result (INTERSECT) = {Gill}
+Shows only common data in both tables.
+
+        </pre>
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM cricket_players;
++----------+--------------+------+
+| PlayerID | Name         | Age  |
++----------+--------------+------+
+|        1 | Virat Kohli  |   35 |
+|        2 | Rohit Sharma |   36 |
+|        3 | M.S. Dhoni   |   43 |
+|        4 | Shubman Gill |   35 |
++----------+--------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM cricket_players2;
++----------+---------------+------+
+| PlayerID | Name          | Age  |
++----------+---------------+------+
+|        1 | Virat Kohli   |   35 |
+|        2 | Rohit Sharma  |   36 |
+|        3 | M.S. Dhoni    |   43 |
+|        4 | Hardik Pandya |   30 |
++----------+---------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT Name, Age
+    -> FROM cricket_players
+    -> WHERE (Name, Age) IN (
+    ->   SELECT Name, Age
+    ->   FROM cricket_players2
+    -> );
++--------------+------+
+| Name         | Age  |
++--------------+------+
+| Virat Kohli  |   35 |
+| Rohit Sharma |   36 |
+| M.S. Dhoni   |   43 |
++--------------+------+
+3 rows in set (0.07 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

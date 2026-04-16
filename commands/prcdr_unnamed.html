@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unnamed Procedure</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>UNNAMED PROCEDURE (ANONYMOUS BLOCK)</h2>
+
+  <p><strong>Definition:</strong>  
+    An <strong>Unnamed Procedure</strong>, also called an <strong>Anonymous Block</strong>, is a PL/SQL program block that does not have a name and is not stored in the database. It is written and executed directly without being saved permanently.
+  </p>
+
+  <p><strong>Key Features:</strong></p>
+  <ul>
+    <li>Not stored in the database</li>
+    <li>Useful for quick testing and one-time operations</li>
+    <li>Cannot be called like a procedure or function</li>
+  </ul>
+
+  <p><strong>Structure:</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;-- Variable declarations<br>
+    BEGIN<br>
+    &nbsp;&nbsp;-- Executable statements<br>
+    EXCEPTION<br>
+    &nbsp;&nbsp;-- Exception handling statements<br>
+    END;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;v_name VARCHAR2(20) := 'Gagan';<br>
+    BEGIN<br>
+    &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Welcome, ' || v_name);<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Welcome, Gagan
+  </div>
+
+</body>
+</html>

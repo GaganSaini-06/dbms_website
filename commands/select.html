@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>SELECT COMMAND</h2>
+
+    <p><strong>Definition:</strong>The SELECT command in SQL is used to fetch data from a database. It retrieves one or more rows from a table.
+
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">SELECT column1, column2, ...  
+        FROM table_name  
+        WHERE condition;
+        </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">SELECT name, age  
+        FROM students  
+        WHERE age > 18;
+        </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM old_table WHERE Rollno = 18;
++--------+-------------+------+-------+----------+
+| Rollno | Name        | Age  | Class | Semester |
++--------+-------------+------+-------+----------+
+|     18 | Virat Kohli |   37 | BCA   |        6 |
++--------+-------------+------+-------+----------+
+1 row in set (0.00 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

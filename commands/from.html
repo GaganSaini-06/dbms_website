@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>FROM CLAUSE</h2>
+
+    <p><strong>Definition:</strong>The FROM clause in SQL is used to specify the table from which the data should be retrieved. It works along with the SELECT clause and is necessary to indicate the source of the data.
+
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">SELECT column1, column2, ...
+        FROM table_name;
+        </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">SELECT name, age
+        FROM students;
+        </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM student_data;
++--------+-------+------+-------+--------+
+| Rollno | Name  | Age  | marks | Course |
++--------+-------+------+-------+--------+
+| 4090   | Gagan |   19 |  NULL | BCA    |
+| 4125   | Love  |   21 |  NULL | BCA    |
+| 4130   | Kush  |   21 |  NULL | BCA    |
+| 4132   | Honey |   19 |  NULL | BCA    |
+| 4150   |       |   19 |  NULL | BBA    |
+| 4150   | Ayush |   21 |  NULL | BBA    |
+| 4174   | Vinay |   19 |  NULL | BBA    |
+| 4163   | NULL  |   19 |  NULL | BBA    |
++--------+-------+------+-------+--------+
+8 rows in set (0.00 sec) 
+</pre>
+    </div>
+
+</body>
+
+</html>

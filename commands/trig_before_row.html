@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Before Row Level Trigger</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>BEFORE ROW LEVEL TRIGGER</h2>
+
+  <p><strong>Definition:</strong>  
+  A <strong>BEFORE ROW LEVEL TRIGGER</strong> is a trigger that is executed automatically <strong>before each row is inserted, updated, or deleted</strong> from a table. It is often used to validate or modify data before the change is made.</p>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    <pre>
+CREATE OR REPLACE TRIGGER trigger_name  
+BEFORE INSERT OR UPDATE OR DELETE  
+ON table_name  
+FOR EACH ROW  
+BEGIN  
+   -- trigger logic here  
+END;
+    </pre>
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <p>This trigger ensures that the salary of an employee is never entered below 10000 before inserting data into the table.</p>
+  <div class="code">
+    <pre>
+CREATE OR REPLACE TRIGGER check_salary  
+BEFORE INSERT ON employees  
+FOR EACH ROW  
+BEGIN  
+  IF :NEW.salary &lt; 10000 THEN  
+    RAISE_APPLICATION_ERROR(-20001, 'Salary must be at least 10000');  
+  END IF;  
+END;
+    </pre>
+  </div>
+
+  <p><strong>Explanation:</strong></p>
+  <ul>
+    <li><code>:NEW</code> refers to the new values being inserted.</li>
+    <li>If the salary is less than 10000, the trigger raises an error and prevents the insertion.</li>
+    <li>It works on each row being inserted.</li>
+  </ul>
+
+</body>
+</html>

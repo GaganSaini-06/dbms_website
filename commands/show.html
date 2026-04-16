@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> Command</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>SHOW COMMAND</h2>
+
+  <p><strong>Definition:</strong> 
+    The SHOW command in SQL is used to display information about databases, tables, columns, or other database objects. It helps in checking the structure and existing data elements in your database.
+</p>
+  
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    SHOW object_type;
+</div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    SHOW DATABASES;
+</div>
+<div class="code">
+    SHOW TABLES;
+</div>
+
+<p><strong>Output:</strong></p>
+<div class="code"><pre>
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| bca2ndyear_4090    |
+| information_schema |
+| mysql              |
+| performance_schema |
+| stu                |
+| student_4090       |
+| sys                |
+| temp               |
++--------------------+
+8 rows in set (0.01 sec)
+</pre></div>
+
+</body>
+</html>

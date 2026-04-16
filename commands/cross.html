@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>CROSS OR CARTESIAN JOIN</h2>
+
+    <p><strong>Definition:</strong>
+        A Cartesian Join returns the cross product of two tables — that means each row from the first table is combined with every row from the second table.
+        <br>
+        It doesn't require any ON condition.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">
+        SELECT *  
+        FROM table1, table2;
+        <br>
+        OR
+        <br>
+        SELECT *  
+        FROM table1  
+        CROSS JOIN table2;
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">
+        SELECT *  
+        FROM Students  
+        CROSS JOIN Courses;
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM cricket_players;
++----------+--------------+------+
+| PlayerID | Name         | Age  |
++----------+--------------+------+
+|        1 | Virat Kohli  |   35 |
+|        2 | Rohit Sharma |   36 |
+|        3 | M.S. Dhoni   |   43 |
+|        4 | Shubman Gill |   35 |
++----------+--------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM team_info;
++----------+------+
+| PlayerID | Team |
++----------+------+
+|        1 | RCB  |
+|        2 | MI   |
+|        3 | CSK  |
+|        4 | GT   |
++----------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT cricket_players.PlayerID, cricket_players.Name, team_info.Team
+-> FROM cricket_players
+-> CROSS JOIN team_info;
++----------+--------------+------+
+| PlayerID | Name         | Team |
++----------+--------------+------+
+|        4 | Shubman Gill | RCB  |
+|        3 | M.S. Dhoni   | RCB  |
+|        2 | Rohit Sharma | RCB  |
+|        1 | Virat Kohli  | RCB  |
+|        4 | Shubman Gill | MI   |
+|        3 | M.S. Dhoni   | MI   |
+|        2 | Rohit Sharma | MI   |
+|        1 | Virat Kohli  | MI   |
+|        4 | Shubman Gill | CSK  |
+|        3 | M.S. Dhoni   | CSK  |
+|        2 | Rohit Sharma | CSK  |
+|        1 | Virat Kohli  | CSK  |
+|        4 | Shubman Gill | GT   |
+|        3 | M.S. Dhoni   | GT   |
+|        2 | Rohit Sharma | GT   |
+|        1 | Virat Kohli  | GT   |
++----------+--------------+------+
+16 rows in set (0.00 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

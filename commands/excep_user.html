@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User-Defined Exceptions</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>USER-DEFINED EXCEPTIONS</h2>
+
+  <p><strong>Definition:</strong> User-defined exceptions are custom exceptions created by the programmer for handling specific application errors that are not covered by predefined exceptions.</p>
+
+  <p>You declare them using the <code>EXCEPTION</code> keyword and raise them using the <code>RAISE</code> statement.</p>
+
+  <p><strong>Steps to Use User-Defined Exceptions:</strong></p>
+  <ul>
+    <li>Declare the exception using the <code>EXCEPTION</code> keyword.</li>
+    <li>Raise the exception using the <code>RAISE</code> statement.</li>
+    <li>Handle it in the <code>EXCEPTION</code> block.</li>
+  </ul>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    <pre>
+DECLARE
+  exception_name EXCEPTION;
+BEGIN
+  -- some logic
+  RAISE exception_name;
+EXCEPTION
+  WHEN exception_name THEN
+    -- handling code
+END;
+    </pre>
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    <pre>
+DECLARE
+  insufficient_balance EXCEPTION;
+  balance NUMBER := 500;
+  withdrawal NUMBER := 1000;
+BEGIN
+  IF withdrawal > balance THEN
+    RAISE insufficient_balance;
+  ELSE
+    balance := balance - withdrawal;
+  END IF;
+
+  DBMS_OUTPUT.PUT_LINE('Withdrawal successful.');
+EXCEPTION
+  WHEN insufficient_balance THEN
+    DBMS_OUTPUT.PUT_LINE('Error: Insufficient Balance!');
+END;
+    </pre>
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    <pre>
+Error: Insufficient Balance!
+    </pre>
+  </div>
+
+</body>
+</html>

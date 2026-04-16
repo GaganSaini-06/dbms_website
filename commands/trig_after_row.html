@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>After Row Level Trigger</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>AFTER ROW LEVEL TRIGGER</h2>
+
+  <p><strong>Definition:</strong>  
+  An <strong>AFTER ROW LEVEL TRIGGER</strong> is a type of trigger that fires <strong>automatically after each row</strong> is inserted, updated, or deleted from a table. It's commonly used for logging changes or updating other tables after data modification.</p>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    <pre>
+CREATE OR REPLACE TRIGGER trigger_name  
+AFTER INSERT OR UPDATE OR DELETE  
+ON table_name  
+FOR EACH ROW  
+BEGIN  
+   -- trigger logic here  
+END;
+    </pre>
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <p>This trigger inserts a log entry after a new employee is added to the <code>employees</code> table.</p>
+  <div class="code">
+    <pre>
+CREATE OR REPLACE TRIGGER log_insert  
+AFTER INSERT ON employees  
+FOR EACH ROW  
+BEGIN  
+  INSERT INTO emp_log(emp_name, log_date)  
+  VALUES (:NEW.name, SYSDATE);  
+END;
+    </pre>
+  </div>
+
+  <p><strong>Explanation:</strong></p>
+  <ul>
+    <li><code>:NEW</code> refers to the new row being inserted.</li>
+    <li>The trigger fires after the insert is completed.</li>
+    <li>Used for auditing, logging, or further actions after a change.</li>
+  </ul>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2> COMMAND</h2>
+
+    <p><strong>Definition:</strong>The BETWEEN operator in SQL is used to filter the result set within a range of values. It selects values between a minimum and maximum value (both are included).
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">SELECT * FROM table_name WHERE column_name BETWEEN value1 AND value2;
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">SELECT * FROM students WHERE Age BETWEEN 20 AND 22;
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM students WHERE Age BETWEEN 20 AND 22;
++--------+-------+------+-------+--------+
+| Rollno | Name  | Age  | marks | Course |
++--------+-------+------+-------+--------+
+| 4125   | Love  |   21 |  NULL | BCA    |
+| 4130   | Kush  |   21 |  NULL | BCA    |
+| 4150   | Ayush |   21 |  NULL | BBA    |
++--------+-------+------+-------+--------+
+3 rows in set (0.07 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

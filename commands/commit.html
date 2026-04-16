@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>COMMIT COMMAND</h2>
+
+    <p><strong>Definition:</strong>
+        The COMMIT command is used to save all changes permanently made during the current transaction to the database.
+        <br>
+        Once committed, the changes cannot be rolled back.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">
+        COMMIT;
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">
+        <pre>
+START TRANSACTION;
+
+INSERT INTO students (Rollno, Name, Age, Class, Semester) 
+VALUES (25, 'Shubman Gill', 24, 'BCA', 3);
+
+COMMIT;
+        </pre>
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM students;
++--------+-------+------+--------+
+| Rollno | Name  | Age  | DeptID |
++--------+-------+------+--------+
+|     18 | NONY  |   22 |      1 |
+|     90 | GAGAN |   19 |      1 |
++--------+-------+------+--------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO students VALUES (10, 'LOVE', 21, 2);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> COMMIT;
+Query OK, 0 rows affected (0.00 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

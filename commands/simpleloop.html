@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Loop</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>SIMPLE LOOP</h2>
+
+  <p><strong>Definition:</strong>  
+    The <code>SIMPLE LOOP</code> in PL/SQL repeatedly executes a block of statements until an <code>EXIT</code> condition is met. It must include an explicit <code>EXIT</code> or <code>EXIT WHEN</code> statement inside the loop to avoid infinite execution.
+  </p>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    LOOP<br>
+      &nbsp;&nbsp;statements;<br>
+      &nbsp;&nbsp;EXIT WHEN condition;<br>
+    END LOOP;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    DECLARE<br>
+      &nbsp;&nbsp;i NUMBER := 1;<br>
+    BEGIN<br>
+      &nbsp;&nbsp;LOOP<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Value of i: ' || i);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;i := i + 1;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;EXIT WHEN i &gt; 5;<br>
+      &nbsp;&nbsp;END LOOP;<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+<pre>
+Value of i: 1  
+Value of i: 2  
+Value of i: 3  
+Value of i: 4  
+Value of i: 5
+</pre>
+  </div>
+
+</body>
+</html>

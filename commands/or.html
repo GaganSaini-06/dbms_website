@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OR Operator</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>OR OPERATOR</h2>
+
+  <p><strong>Definition:</strong> The OR operator in SQL is used to filter records where **at least one condition** is true.</p>
+  
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    SELECT * FROM table_name WHERE condition1 OR condition2;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    SELECT * FROM students WHERE Name = 'Virat' OR Course = 'BBA';
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    <pre>
+mysql> SELECT * FROM students;
++--------+-------+------+-------+--------+
+| Rollno | Name  | Age  | marks | Course |
++--------+-------+------+-------+--------+
+| 4090   | Gagan |   19 |  NULL | BCA    |
+| 4125   | Love  |   21 |  NULL | BCA    |
+| 4130   | Kush  |   21 |  NULL | BCA    |
+| 4132   | Honey |   19 |  NULL | BCA    |
+| 4150   |       |   19 |  NULL | BBA    |
+| 4150   | Ayush |   21 |  NULL | BBA    |
+| 4174   | Vinay |   19 |  NULL | BBA    |
+| 4163   | NULL  |   19 |  NULL | BBA    |
++--------+-------+------+-------+--------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT * FROM students WHERE Name = 'Virat' OR Course = 'BBA';
++--------+-------+------+-------+--------+
+| Rollno | Name  | Age  | marks | Course |
++--------+-------+------+-------+--------+
+| 4150   |       |   19 |  NULL | BBA    |
+| 4150   | Ayush |   21 |  NULL | BBA    |
+| 4174   | Vinay |   19 |  NULL | BBA    |
+| 4163   | NULL  |   19 |  NULL | BBA    |
++--------+-------+------+-------+--------+
+4 rows in set (0.00 sec)
+    </pre>
+  </div>
+
+</body>
+</html>

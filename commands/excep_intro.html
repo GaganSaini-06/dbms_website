@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to Exception Handling</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>INTRODUCTION TO EXCEPTION HANDLING</h2>
+
+  <p><strong>Definition:</strong> Exception handling in PL/SQL is a mechanism to handle runtime errors. If an error occurs during program execution, control is passed to the exception-handling section of the block. It helps to keep the program running smoothly without abrupt termination.</p>
+
+  <p><strong>Why Exception Handling?</strong></p>
+  <ul>
+    <li>To avoid abnormal termination of program.</li>
+    <li>To handle predictable and unpredictable errors.</li>
+    <li>To maintain program flow even after errors.</li>
+  </ul>
+
+  <p><strong>Structure of Exception Handling in PL/SQL:</strong></p>
+  <div class="code">
+    <pre>
+DECLARE
+   -- Variable declaration
+BEGIN
+   -- Executable statements
+EXCEPTION
+   WHEN exception_name THEN
+      -- Exception handling statements
+END;
+    </pre>
+  </div>
+
+  <p><strong>Types of Exceptions:</strong></p>
+  <ul>
+    <li><strong>Predefined Exceptions:</strong> Built-in exceptions in PL/SQL like <code>NO_DATA_FOUND</code>, <code>ZERO_DIVIDE</code>.</li>
+    <li><strong>User-defined Exceptions:</strong> Declared explicitly by the programmer using the <code>EXCEPTION</code> keyword.</li>
+  </ul>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    <pre>
+DECLARE
+   num1 NUMBER := 10;
+   num2 NUMBER := 0;
+   result NUMBER;
+BEGIN
+   result := num1 / num2;
+   DBMS_OUTPUT.PUT_LINE('Result: ' || result);
+EXCEPTION
+   WHEN ZERO_DIVIDE THEN
+      DBMS_OUTPUT.PUT_LINE('Cannot divide by zero!');
+END;
+    </pre>
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    <pre>
+Cannot divide by zero!
+    </pre>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>AVG() FUNCTION</h2>
+
+    <p><strong>Definition:</strong>The AVG() function is used to calculate the average value of a numeric column. It adds all the values and divides by the total number of values.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">SELECT AVG(column_name) FROM table_name WHERE condition;
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">SELECT AVG(marks) FROM student_marks;
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM marks;
++---------+------+------+------+------+------+------+-------+
+| Rollno  | m1   | m2   | m3   | m4   | Name | Age  | Class |
++---------+------+------+------+------+------+------+-------+
+| 4090/23 |   32 |   57 |   73 |   84 | NULL | NULL | NULL  |
+| 82      |   56 |   65 |   85 |   44 | NULL | NULL | NULL  |
+| 33      |   62 |   63 |   34 |   46 | NULL | NULL | NULL  |
+| 33      |   62 | NULL |   34 |   46 | NULL | NULL | NULL  |
+| 55      | NULL | NULL | NULL | NULL | NULL | NULL | NULL  |
+| 62      |   83 | NULL | NULL | NULL | NULL | NULL | NULL  |
++---------+------+------+------+------+------+------+-------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT AVG(m1) FROM marks;
++---------+
+| AVG(m1) |
++---------+
+| 59.0000 |
++---------+
+1 row in set (0.00 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

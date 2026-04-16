@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IF-ELSE Statement</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>IF-ELSE STATEMENT</h2>
+
+  <p><strong>Definition:</strong>  
+    The <code>IF-ELSE</code> statement in PL/SQL is used when you want to execute one block of code if a condition is true, and another block of code if the condition is false.
+  </p>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    IF condition THEN<br>
+      &nbsp;&nbsp;statements;<br>
+    ELSE<br>
+      &nbsp;&nbsp;statements;<br>
+    END IF;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    DECLARE<br>
+      &nbsp;&nbsp;num NUMBER := 25;<br>
+    BEGIN<br>
+      &nbsp;&nbsp;IF num &gt; 0 THEN<br>
+         &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Positive number');<br>
+      &nbsp;&nbsp;ELSE<br>
+         &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Negative number or zero');<br>
+      &nbsp;&nbsp;END IF;<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Positive number
+  </div>
+
+</body>
+</html>

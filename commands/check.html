@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>CHECK CONSTRAINT</h2>
+
+    <p><strong>Definition:</strong>The CHECK constraint is used to limit the value that can be stored in a column. It ensures that the value satisfies a specific condition.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">CREATE TABLE table_name (
+        column_name datatype CHECK (condition)
+    );
+    </div>
+    <div class="code">
+        CREATE TABLE table_name (
+            column1 datatype,
+            column2 datatype,
+            CHECK (column1 > 0 AND column2 < 100)
+        );        
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">CREATE TABLE student (
+        name VARCHAR(50),
+        age INT CHECK (age >= 18)
+    );
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> CREATE TABLE temp_table3 (Rollno INT , Name VARCHAR(35), Age INT CHECK (AGE >= 18));
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> INSERT INTO temp_table3 VALUES (90, 'GAGAN', 19);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO temp_table3 VALUES (80, 'SAGAR', 17);
+ERROR 3819 (HY000): Check constraint 'temp_table3_chk_1' is violated.     
+</pre>
+    </div>
+
+</body>
+
+</html>

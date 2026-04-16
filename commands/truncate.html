@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ALTER Command</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>TRUNCATE COMMAND</h2>
+
+  <p><strong>Definition:</strong> The TRUNCATE command in SQL is used to remove all records from a table without deleting the table structure itself. It is faster than DELETE and cannot be rolled back in most databases because it does not log individual row deletions.</p>
+  
+  <p><strong>Syntax:</strong></p>
+  <div class="code">TRUNCATE TABLE table_name;</div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">TRUNCATE TABLE student;</div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    <pre>
+mysql> SELECT * FROM new_table;
++--------+-------------+------+-------+----------+
+| Rollno | Name        | Age  | Class | Semester |
++--------+-------------+------+-------+----------+
+|      7 | MS DHONI    |   43 | BCA   |        4 |
+|     18 | Virat Kohli |   37 | BCA   |        4 |
++--------+-------------+------+-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> TRUNCATE TABLE new_table;
+Query OK, 0 rows affected (0.11 sec)
+
+mysql> SELECT * FROM new_table;
+Empty set (0.00 sec)
+    </pre>
+    </div>
+
+</body>
+</html>

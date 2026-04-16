@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>GROUP BY CLAUSE</h2>
+
+    <p><strong>Definition:</strong>The GROUP BY clause is used to arrange identical data into groups. It is often used with aggregate functions like COUNT(), SUM(), AVG(), MAX(), MIN() to perform operations on each group of data.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">SELECT column_name, AGGREGATE_FUNCTION(column_name)
+        FROM table_name
+        GROUP BY column_name;
+        </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">SELECT department, COUNT(*)
+        FROM employees
+        GROUP BY department;
+        </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT Age, COUNT(*) 'Total Student' FROM student_data GROUP BY Age;
++------+---------------+
+| Age  | Total Student |
++------+---------------+
+|   19 |             5 |
+|   21 |             3 |
++------+---------------+
+2 rows in set (0.00 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trigger Parameters</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>TRIGGER PARAMETERS</h2>
+
+  <p><strong>Definition:</strong>  
+  Trigger parameters are the important elements used in a trigger to define <strong>when</strong> and <strong>how</strong> the trigger will execute.</p>
+
+  <p><strong>Key Parameters in Triggers:</strong></p>
+
+  <ul>
+    <li><strong>BEFORE / AFTER:</strong>  
+      Specifies whether the trigger fires <strong>before</strong> or <strong>after</strong> the DML operation (INSERT, UPDATE, DELETE).
+    </li>
+
+    <li><strong>INSERT / UPDATE / DELETE:</strong>  
+      Specifies the <strong>DML operation</strong> that causes the trigger to fire.
+    </li>
+
+    <li><strong>ON table_name:</strong>  
+      Specifies the table the trigger is associated with.
+    </li>
+
+    <li><strong>FOR EACH ROW / STATEMENT:</strong>  
+      - <strong>ROW level</strong>: Executes once for each row affected.<br>
+      - <strong>STATEMENT level</strong>: Executes once for the entire DML operation.
+    </li>
+
+    <li><strong>:OLD and :NEW:</strong>  
+      These are used in row-level triggers:
+      <ul>
+        <li><code>:OLD</code> – Refers to the old value before DML operation.</li>
+        <li><code>:NEW</code> – Refers to the new value after DML operation.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    <pre>
+CREATE OR REPLACE TRIGGER emp_before_update  
+BEFORE UPDATE ON employees  
+FOR EACH ROW  
+BEGIN  
+  DBMS_OUTPUT.PUT_LINE('Old Salary: ' || :OLD.salary);  
+  DBMS_OUTPUT.PUT_LINE('New Salary: ' || :NEW.salary);  
+END;
+    </pre>
+  </div>
+
+  <p><strong>Explanation:</strong>  
+  This trigger uses <code>:OLD</code> and <code>:NEW</code> to display salary values before and after the update. The trigger runs before each row is updated.</p>
+
+</body>
+</html>

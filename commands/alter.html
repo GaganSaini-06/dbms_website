@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ALTER Command</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>ALTER COMMAND</h2>
+
+  <p><strong>Definition:</strong> The ALTER command in SQL is used to modify the structure of an existing table. It allows you to add, delete, or change columns.</p>
+  
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    FOR ADDING COLUMN:-  <br>
+    ALTER TABLE table_name ADD (column_name datatype, column_name datatype, ...);</div>
+  <div class="code">
+    FOR MODIFYING COLUMN:-  <br>
+    ALTER TABLE table_name MODIFY old_column_name new_datatype, MODIFY old_column_name new_datatype, ...;</div>
+  <div class="code">
+    FOR DROPPING COLUMN:-  <br>  
+    ALTER TABLE table_name DROP column_name, DROP column_name, ...;</div>
+
+
+  <p><strong>Example:</strong></p>
+  <div class="code">ALTER TABLE student ADD (Class varchar(35), Semester int);</div>
+  <div class="code">ALTER TABLE student MODIFY Rollno varchar(10);</div>
+  <div class="code">ALTER TABLE student DROP Semester;</div>
+
+  
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    <pre>
+mysql> DESC new_table;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| Rollno | int         | YES  |     | NULL    |       |
+| Name   | varchar(25) | YES  |     | NULL    |       |
+| Age    | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> ALTER TABLE new_table ADD (Class varchar(35), Semester int);
+Query OK, 0 rows affected (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC new_table;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| Rollno   | int         | YES  |     | NULL    |       |
+| Name     | varchar(25) | YES  |     | NULL    |       |
+| Age      | int         | YES  |     | NULL    |       |
+| Class    | varchar(35) | YES  |     | NULL    |       |
+| Semester | int         | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+    </pre>
+  </div>
+
+</body>
+</html>

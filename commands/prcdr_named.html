@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Named Procedure</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>NAMED PROCEDURE</h2>
+
+  <p><strong>Definition:</strong>  
+    A <strong>Named Procedure</strong> in PL/SQL is a subprogram that performs a specific task, is stored in the database with a name, and can be reused multiple times by calling it.
+  </p>
+
+  <p><strong>Key Features:</strong></p>
+  <ul>
+    <li>Stored in the database permanently</li>
+    <li>Can be called from other PL/SQL blocks or applications</li>
+    <li>Supports parameters (IN, OUT, IN OUT)</li>
+  </ul>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    CREATE OR REPLACE PROCEDURE procedure_name<br>
+    IS<br>
+    &nbsp;&nbsp;-- Declaration section<br>
+    BEGIN<br>
+    &nbsp;&nbsp;-- Executable section<br>
+    END procedure_name;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    CREATE OR REPLACE PROCEDURE greet_user<br>
+    IS<br>
+    &nbsp;&nbsp;v_name VARCHAR2(20) := 'Gagan';<br>
+    BEGIN<br>
+    &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Hello, ' || v_name);<br>
+    END greet_user;
+  </div>
+
+  <p><strong>Calling the Procedure:</strong></p>
+  <div class="code">
+    BEGIN<br>
+    &nbsp;&nbsp;greet_user;<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Hello, Gagan
+  </div>
+
+</body>
+</html>

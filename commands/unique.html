@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>UNIQUE CONSTRAINT</h2>
+
+    <p><strong>Definition:</strong>The UNIQUE constraint ensures that all values in a column are different. It is used to prevent duplicate values in a specific column.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">CREATE TABLE table_name (
+        column_name datatype UNIQUE
+    );
+    </div>
+    <div class="code">
+        CREATE TABLE table_name (
+            column1 datatype,
+            column2 datatype,
+            UNIQUE (column1, column2)
+        );        
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">
+    CREATE TABLE student (
+    roll_no INT UNIQUE,
+    name VARCHAR(50)
+    );
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> CREATE TABLE temp_table2 (Rollno INT UNIQUE, Name VARCHAR(35), Age INT);
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> INSERT INTO temp_table2 VALUES (90, 'GAGAN', NULL);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO temp_table2 VALUES (90, 'SAHIL', 18);
+ERROR 1062 (23000): Duplicate entry '90' for key 'temp_table2.Rollno'      
+</pre>
+    </div>
+
+</body>
+
+</html>

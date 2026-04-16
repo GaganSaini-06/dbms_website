@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Variable Declaration</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>VARIABLE DECLARATION</h2>
+
+  <p><strong>Introduction:</strong>  
+  Variables in PL/SQL are used to store data temporarily during the execution of a program. They must be declared before use and have a specific data type. Constants can also be declared to store fixed values that do not change.</p>
+
+  <h3>PL/SQL Data Types:</h3>
+  <p>PL/SQL supports many data types such as:</p>
+  <ul>
+    <li><strong>NUMBER(p,s)</strong> – Numeric values with precision and scale</li>
+    <li><strong>VARCHAR2(n)</strong> – Variable-length character strings</li>
+    <li><strong>CHAR(n)</strong> – Fixed-length character strings</li>
+    <li><strong>DATE</strong> – Date and time</li>
+    <li><strong>BOOLEAN</strong> – TRUE, FALSE, or NULL</li>
+  </ul>
+
+  <h3>Declaring Variables:</h3>
+  <div class="code">
+    variable_name datatype [:= initial_value];
+  </div>
+
+  <h3>Declaring Constants:</h3>
+  <p>Use the CONSTANT keyword to declare constants.</p>
+  <div class="code">
+    pi CONSTANT NUMBER := 3.14159;
+  </div>
+
+  <h3>Using %TYPE:</h3>
+  <p>The <code>%TYPE</code> attribute is used to declare a variable with the same data type as a column or another variable.</p>
+  <div class="code">
+    emp_name employees.name%TYPE;
+  </div>
+
+  <h3>Using %ROWTYPE:</h3>
+  <p>The <code>%ROWTYPE</code> attribute is used to declare a record that represents an entire row of a table.</p>
+  <div class="code">
+    emp_record employees%ROWTYPE;
+  </div>
+
+  <h3>Scope and Visibility:</h3>
+  <p>Variables declared inside a block are local to that block and cannot be accessed outside of it. Outer block variables can be accessed inside inner blocks unless shadowed by another declaration.</p>
+
+  <h3>Assignments and Expressions:</h3>
+  <p>You can assign values using <code>:=</code> operator.</p>
+  <div class="code">
+    total := price * quantity;
+  </div>
+
+  <h3>Operator Precedence:</h3>
+  <p>PL/SQL follows a specific order of precedence for evaluating expressions:</p>
+  <ol>
+    <li>Exponents (**)</li>
+    <li>Multiplication and Division (*, /)</li>
+    <li>Addition and Subtraction (+, -)</li>
+    <li>Logical NOT</li>
+    <li>Logical AND</li>
+    <li>Logical OR</li>
+  </ol>
+
+  <h3>Example:</h3>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;name employees.name%TYPE;<br>
+    &nbsp;&nbsp;salary NUMBER := 30000;<br>
+    &nbsp;&nbsp;bonus CONSTANT NUMBER := 5000;<br>
+    &nbsp;&nbsp;net_salary NUMBER;<br>
+    BEGIN<br>
+    &nbsp;&nbsp;net_salary := salary + bonus;<br>
+    &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Net Salary: ' || net_salary);<br>
+    END;
+  </div>
+
+</body>
+</html>

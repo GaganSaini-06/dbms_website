@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PL/SQL Architecture</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>PL/SQL ARCHITECTURE</h2>
+
+  <p><strong>Definition:</strong> PL/SQL architecture defines the internal processing of PL/SQL code inside the Oracle database. It explains how SQL and PL/SQL statements are handled and which engine (SQL engine or PL/SQL engine) executes them.</p>
+
+  <p><strong>Components of PL/SQL Architecture:</strong></p>
+  <ul>
+    <li><strong>PL/SQL Block:</strong> The smallest unit of PL/SQL program.</li>
+    <li><strong>PL/SQL Engine:</strong> Responsible for processing procedural statements. If a statement is procedural, it is executed by PL/SQL engine.</li>
+    <li><strong>SQL Engine:</strong> If a statement is SQL (like SELECT, INSERT), it is passed to SQL engine for execution.</li>
+    <li><strong>Memory Structures:</strong> Includes cursor areas and context areas for managing data during execution.</li>
+    <li><strong>Database Buffer Cache:</strong> Frequently accessed data is stored here to speed up performance.</li>
+  </ul>
+
+  <p><strong>Working Flow:</strong></p>
+  <div class="code">
+    1. User sends PL/SQL block to Oracle Server<br>
+    2. PL/SQL Engine checks each statement<br>
+    3. Procedural statements → Executed by PL/SQL engine<br>
+    4. SQL statements → Forwarded to SQL engine<br>
+    5. Output is returned back to the user
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    DECLARE<br>
+     msg VARCHAR2(30) := 'Hello from PL/SQL';<br>
+    BEGIN<br>
+     DBMS_OUTPUT.PUT_LINE(msg);<br>
+    END;<br>
+    /
+  </div>
+
+  <p><strong>Note:</strong> In the above example, <code>DBMS_OUTPUT.PUT_LINE</code> is handled by the PL/SQL engine as it is a procedural statement. If we used SELECT, that would be executed by the SQL engine.</p>
+
+</body>
+</html>

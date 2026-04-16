@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2> COMMAND</h2>
+
+    <p><strong>Definition:</strong>The AUTO_INCREMENT constraint is used to automatically generate a unique number when a new record is inserted into a table. It is usually applied to the primary key column.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">
+        CREATE TABLE table_name (
+        column_name INT AUTO_INCREMENT,
+        other_column datatype,
+        PRIMARY KEY (column_name)
+        );
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">
+        <pre>
+    CREATE TABLE cricket_players (
+    PlayerID INT AUTO_INCREMENT,
+    Name VARCHAR(50),
+    Age INT,
+    PRIMARY KEY (PlayerID)
+);
+
+INSERT INTO cricket_players (Name, Age) VALUES ('Virat Kohli', 35);
+INSERT INTO cricket_players (Name, Age) VALUES ('Rohit Sharma', 36);
+        </pre>
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> CREATE TABLE cricket_players (
+    ->   PlayerID INT AUTO_INCREMENT,
+    ->   Name VARCHAR(50),
+    ->   Age INT,
+    ->   PRIMARY KEY (PlayerID)
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> INSERT INTO cricket_players (Name, Age) VALUES ('Virat Kohli', 35);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> INSERT INTO cricket_players (Name, Age) VALUES ('Rohit Sharma', 36);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> SELECT * FROM cricket_players;
++----------+--------------+------+
+| PlayerID | Name         | Age  |
++----------+--------------+------+
+|        1 | Virat Kohli  |   35 |
+|        2 | Rohit Sharma |   36 |
++----------+--------------+------+
+2 rows in set (0.00 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

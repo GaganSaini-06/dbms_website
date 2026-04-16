@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stored Function</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>STORED FUNCTION</h2>
+
+  <p><strong>Definition:</strong>  
+    A <strong>stored function</strong> in PL/SQL is a named function that is stored in the database and can be reused multiple times. It performs a specific task and returns a value.
+  </p>
+
+  <p>Stored functions are created once and remain in the database schema. They can be called by other PL/SQL blocks, procedures, or SQL statements (if allowed).</p>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    CREATE OR REPLACE FUNCTION function_name (<br>
+    &nbsp;&nbsp;param1 [mode] datatype,<br>
+    &nbsp;&nbsp;param2 [mode] datatype<br>
+    ) RETURN return_datatype<br>
+    IS<br>
+    &nbsp;&nbsp;-- Variable declarations<br>
+    BEGIN<br>
+    &nbsp;&nbsp;-- Function logic<br>
+    &nbsp;&nbsp;RETURN value;<br>
+    END;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    CREATE OR REPLACE FUNCTION greet_user(name IN VARCHAR2)<br>
+    RETURN VARCHAR2<br>
+    IS<br>
+    &nbsp;&nbsp;greeting VARCHAR2(50);<br>
+    BEGIN<br>
+    &nbsp;&nbsp;greeting := 'Hello, ' || name || '!';<br>
+    &nbsp;&nbsp;RETURN greeting;<br>
+    END;
+  </div>
+
+  <p><strong>Calling the Stored Function:</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;msg VARCHAR2(50);<br>
+    BEGIN<br>
+    &nbsp;&nbsp;msg := greet_user('Gagan');<br>
+    &nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE(msg);<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Hello, Gagan!
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to Sets</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>INTRODUCTION TO SETS</h2>
+
+  <p><strong>Definition:</strong> In SQL, <b>Set Operators</b> are used to combine the results of two or more SELECT queries. These operators help in handling multiple result sets in a meaningful way.</p>
+
+  <p><strong>Rules for Using Set Operators:</strong></p>
+  <ul>
+    <li>Each SELECT statement must have the same number of columns.</li>
+    <li>Columns must be of compatible data types.</li>
+    <li>The order of columns should be the same in all SELECT statements.</li>
+  </ul>
+
+  <p><strong>Types of Set Operators:</strong></p>
+  <ul>
+    <li><strong>UNION:</strong> Combines results of two SELECT statements and removes duplicates.</li>
+    <li><strong>UNION ALL:</strong> Combines results of two SELECT statements without removing duplicates.</li>
+    <li><strong>INTERSECT:</strong> Returns only the common records from both SELECT statements.</li>
+    <li><strong>MINUS (EXCEPT in some databases):</strong> Returns records from the first SELECT that are not present in the second.</li>
+  </ul>
+
+  <p><strong>Example (UNION):</strong></p>
+  <div class="code">
+    SELECT city FROM customers<br>
+    UNION<br>
+    SELECT city FROM suppliers;
+  </div>
+
+  <p><strong>Note:</strong> The default behavior of <code>UNION</code> is to eliminate duplicates. Use <code>UNION ALL</code> if you want to keep them.</p>
+
+</body>
+</html>

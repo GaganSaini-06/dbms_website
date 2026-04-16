@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2> COMMAND</h2>
+
+    <p><strong>Definition:</strong>The IN operator in SQL is used to match a column’s value against a list of multiple values. It helps you filter records where a column’s value is equal to any one of the values in the list.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">SELECT * FROM table_name WHERE column_name IN (value1, value2, ...);
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">SELECT * FROM students WHERE Name IN ('Virat', 'Rohit');
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM students;
++--------+-------+------+-------+--------+
+| Rollno | Name  | Age  | marks | Course |
++--------+-------+------+-------+--------+
+| 4090   | Gagan |   19 |  NULL | BCA    |
+| 4125   | Love  |   21 |  NULL | BCA    |
+| 4130   | Kush  |   21 |  NULL | BCA    |
+| 4132   | Honey |   19 |  NULL | BCA    |
+| 4150   |       |   19 |  NULL | BBA    |
+| 4150   | Ayush |   21 |  NULL | BBA    |
+| 4174   | Vinay |   19 |  NULL | BBA    |
+| 4163   | NULL  |   19 |  NULL | BBA    |
++--------+-------+------+-------+--------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT * FROM students WHERE Name IN ('Gagan', 'Ayush');
++--------+-------+------+-------+--------+
+| Rollno | Name  | Age  | marks | Course |
++--------+-------+------+-------+--------+
+| 4090   | Gagan |   19 |  NULL | BCA    |
+| 4150   | Ayush |   21 |  NULL | BBA    |
++--------+-------+------+-------+--------+
+2 rows in set (0.00 sec)  
+</pre>
+    </div>
+
+</body>
+
+</html>

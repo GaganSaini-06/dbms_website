@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>FULL OUTER JOIN</h2>
+
+    <p><strong>Definition:</strong>
+        FULL OUTER JOIN returns all records when there is a match in either left or right table.
+        <br>
+        If there's no match, it returns NULL for the missing side.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">
+        SELECT columns  
+        FROM table1  
+        FULL OUTER JOIN table2  
+        ON table1.common_column = table2.common_column;
+        <br>
+        Note: MySQL doesn't directly support FULL OUTER JOIN, but we can simulate it using UNION.
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">
+        SELECT s.name, m.marks  
+        FROM Students s  
+        LEFT JOIN Marks m ON s.student_id = m.student_id
+            <br>
+        UNION
+            <br>
+        SELECT s.name, m.marks  
+        FROM Students s  
+        RIGHT JOIN Marks m ON s.student_id = m.student_id;
+
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM cricket_players;
++----------+--------------+------+
+| PlayerID | Name         | Age  |
++----------+--------------+------+
+|        1 | Virat Kohli  |   35 |
+|        2 | Rohit Sharma |   36 |
+|        3 | M.S. Dhoni   |   43 |
+|        4 | Shubman Gill |   35 |
++----------+--------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM team_info;
++----------+------+
+| PlayerID | Team |
++----------+------+
+|        1 | RCB  |
+|        2 | MI   |
+|        3 | CSK  |
+|        4 | GT   |
++----------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT cricket_players.PlayerID, cricket_players.Name, cricket_players.Age, team_info.Team
+    -> FROM cricket_players
+    -> LEFT JOIN team_info
+    -> ON cricket_players.PlayerID = team_info.PlayerID
+    ->
+    -> UNION
+    ->
+    -> SELECT cricket_players.PlayerID, cricket_players.Name, cricket_players.Age, team_info.Team
+    -> FROM cricket_players
+    -> RIGHT JOIN team_info
+    -> ON cricket_players.PlayerID = team_info.PlayerID;
++----------+--------------+------+------+
+| PlayerID | Name         | Age  | Team |
++----------+--------------+------+------+
+|        1 | Virat Kohli  |   35 | RCB  |
+|        2 | Rohit Sharma |   36 | MI   |
+|        3 | M.S. Dhoni   |   43 | CSK  |
+|        4 | Shubman Gill |   35 | GT   |
++----------+--------------+------+------+
+4 rows in set (0.07 sec)
+</pre>
+    </div>
+
+</body>
+
+</html>

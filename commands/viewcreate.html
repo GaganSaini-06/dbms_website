@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>CREATING VIEW</h2>
+
+    <p><strong>Definition:</strong>A VIEW in SQL is a virtual table based on the result of an SQL query. It does not store data physically, but you can use it like a table to simplify complex queries.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">CREATE VIEW view_name AS  
+        SELECT column1, column2, ...  
+        FROM table_name  
+        WHERE condition;
+        </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">CREATE VIEW young_players AS  
+        SELECT Name, Age  
+        FROM cricket_players  
+        WHERE Age < 35;
+        </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM cricket_players2;
++----------+---------------+------+
+| PlayerID | Name          | Age  |
++----------+---------------+------+
+|        1 | Virat Kohli   |   35 |
+|        2 | Rohit Sharma  |   36 |
+|        3 | M.S. Dhoni    |   43 |
+|        4 | Hardik Pandya |   30 |
++----------+---------------+------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE VIEW young_players2 AS
+-> SELECT Name, Age
+-> FROM cricket_players2
+-> WHERE Age <= 35;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> SELECT * FROM young_players2;
++---------------+------+
+| Name          | Age  |
++---------------+------+
+| Virat Kohli   |   35 |
+| Hardik Pandya |   30 |
++---------------+------+
+2 rows in set (0.00 sec) 
+</pre>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction to Clauses</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>INTRODUCTION TO CLAUSES</h2>
+
+  <p><strong>Definition:</strong> Clauses in SQL are used to define the conditions and rules for retrieving or manipulating data from a database. They refine queries and make them more specific.</p>
+
+  <p><strong>Commonly Used SQL Clauses:</strong></p>
+  <ul>
+    <li><strong>WHERE:</strong> Filters records based on a condition.</li>
+    <li><strong>ORDER BY:</strong> Sorts the result-set in ascending or descending order.</li>
+    <li><strong>GROUP BY:</strong> Groups rows that have the same values into summary rows.</li>
+    <li><strong>HAVING:</strong> Filters records after grouping (used with GROUP BY).</li>
+    <li><strong>LIMIT / ROWNUM:</strong> Limits the number of records returned (database-specific).</li>
+  </ul>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    SELECT course, COUNT(*)<br>
+    FROM students<br>
+    WHERE age &gt; 18<br>
+    GROUP BY course<br>
+    HAVING COUNT(*) &gt; 1<br>
+    ORDER BY course;
+  </div>
+
+</body>
+</html>

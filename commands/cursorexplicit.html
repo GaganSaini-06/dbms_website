@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Explicit Cursor</title>
+  <link rel="stylesheet" href="command.css">
+</head>
+<body>
+
+  <h2>EXPLICIT CURSOR</h2>
+
+  <p><strong>Definition:</strong>  
+    An <strong>Explicit Cursor</strong> is a cursor that is explicitly declared and controlled by the programmer for SELECT queries that return more than one row. It allows row-by-row processing in PL/SQL.
+  </p>
+
+  <p><strong>Steps to Use:</strong></p>
+  <ol>
+    <li>Declare the cursor</li>
+    <li>Open the cursor</li>
+    <li>Fetch data row by row</li>
+    <li>Close the cursor</li>
+  </ol>
+
+  <p><strong>Syntax:</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;CURSOR cursor_name IS SELECT_statement;<br>
+    &nbsp;&nbsp;variable_name table_name.column_name%TYPE;<br>
+    BEGIN<br>
+    &nbsp;&nbsp;OPEN cursor_name;<br>
+    &nbsp;&nbsp;LOOP<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;FETCH cursor_name INTO variable_name;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;EXIT WHEN cursor_name%NOTFOUND;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;-- process each row<br>
+    &nbsp;&nbsp;END LOOP;<br>
+    &nbsp;&nbsp;CLOSE cursor_name;<br>
+    END;
+  </div>
+
+  <p><strong>Example:</strong></p>
+  <div class="code">
+    DECLARE<br>
+    &nbsp;&nbsp;CURSOR c1 IS SELECT name FROM students;<br>
+    &nbsp;&nbsp;v_name students.name%TYPE;<br>
+    BEGIN<br>
+    &nbsp;&nbsp;OPEN c1;<br>
+    &nbsp;&nbsp;LOOP<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;FETCH c1 INTO v_name;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;EXIT WHEN c1%NOTFOUND;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;DBMS_OUTPUT.PUT_LINE('Student Name: ' || v_name);<br>
+    &nbsp;&nbsp;END LOOP;<br>
+    &nbsp;&nbsp;CLOSE c1;<br>
+    END;
+  </div>
+
+  <p><strong>Output:</strong></p>
+  <div class="code">
+    Student Name: Gagan<br>
+    Student Name: Love<br>
+    Student Name: Kush<br>
+    Student Name: Ayush
+  </div>
+
+</body>
+</html>

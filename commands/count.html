@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Command</title>
+    <link rel="stylesheet" href="command.css">
+</head>
+
+<body>
+
+    <h2>COUNT() FUNCTION</h2>
+
+    <p><strong>Definition:</strong>The COUNT() function is used to count the number of rows (records) in a table that match a specified condition. It helps in finding out how many entries are there.
+    </p>
+
+    <p><strong>Syntax:</strong></p>
+    <div class="code">SELECT COUNT(column_name) FROM table_name WHERE condition;
+    </div>
+
+    <p><strong>Example:</strong></p>
+    <div class="code">SELECT COUNT(roll_no) FROM student;
+    </div>
+
+    <p><strong>Output:</strong></p>
+    <div class="code">
+        <pre>
+mysql> SELECT * FROM marks;
++---------+------+------+------+------+------+------+-------+
+| Rollno  | m1   | m2   | m3   | m4   | Name | Age  | Class |
++---------+------+------+------+------+------+------+-------+
+| 4090/23 |   32 |   57 |   73 |   84 | NULL | NULL | NULL  |
+| 82      |   56 |   65 |   85 |   44 | NULL | NULL | NULL  |
+| 33      |   62 |   63 |   34 |   46 | NULL | NULL | NULL  |
+| 33      |   62 | NULL |   34 |   46 | NULL | NULL | NULL  |
+| 55      | NULL | NULL | NULL | NULL | NULL | NULL | NULL  |
+| 62      |   83 | NULL | NULL | NULL | NULL | NULL | NULL  |
++---------+------+------+------+------+------+------+-------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(m1) FROM marks;
++-----------+
+| COUNT(m1) |
++-----------+
+|         5 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM marks;
++----------+
+| COUNT(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.07 sec)
+
+
+EXPLANATION:- COUNT(m1) shows 5 rows, but COUNT(*) shows 6 rows,
+              It's because AGGREGATE FUNCTIONS ignore NULL values.
+</pre>
+    </div>
+
+</body>
+
+</html>
