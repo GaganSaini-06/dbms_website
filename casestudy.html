@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ALTER Command</title>
+  <link rel="stylesheet" href="commands/command.css">
+</head>
+<body>
+
+ <center> <h1>CASE STUDY</h1> </center>
+
+ <br>
+
+ <center> <div class="code">
+    <pre>
+<h2>STUDENT MARKS TABLE</h2>
++--------+--------+------+------+------+---------+
+| Rollno | name   | dbms | os   | spm  | punjabi |
++--------+--------+------+------+------+---------+
+|      1 | Aarav  | 75   | 85   | A    | 80      |
+|      2 | Ishaan | 62   | 78   | 80   | 65      |
+|      3 | Veda   | A    | 65   | 58   | 72      |
+|      4 | Diya   | 70   | 80   | 89   | 65      |
+|      5 | Rohit  | 88   | 95   | 60   | 81      |
+|      6 | Ananya | 56   | 45   | 30   | 45      |
+|      7 | Ravi   | 74   | 72   | 90   | 85      |
+|      8 | Shreya | 80   | 91   | 95   | 65      |
+|      9 | Vikram | 60   | 15   | 80   | 50      |
+|     10 | Nina   | 65   | 70   | 75   | 66      |
+|     11 | Deepak | 80   | 95   | 85   | 80      |
+|     12 | Simran | 55   | 60   | 25   | 35      |
+|     13 | Isha   | 78   | 82   | 90   | 85      |
+|     14 | Ajay   | 92   | 88   | 85   | 80      |
+|     15 | Komal  | 60   | 67   | 85   | 72      |
+|     16 | Maya   | 90   | 93   | A    | 78      |
+|     17 | Kartik | 76   | 80   | 83   | 85      |
+|     18 | Nisha  | 72   | 89   | 91   | A       |
+|     19 | Tanvi  | 80   | 90   | 78   | 70      |
+|     20 | Harsh  | A    | A    | A    | A       |
++--------+--------+------+------+------+---------+
+    </pre>
+  </div>
+
+  </center>
+
+  <br> <br>
+
+  <div class="code">
+    <p><strong>Question 1:</strong> TOP THREE STUDENTS</p>
+      <p><strong>Conditions:</strong><br>
+          - No subject is "A" (not absent)<br>
+          - No subject has marks < 33 (not fail)<br>
+          - Total % > 60%
+      </p>
+    <pre>
+
+  QUERY:-   SELECT Rollno, 
+            name, 
+            dbms, 
+            os, 
+            spm, 
+            punjabi, 
+            (CAST(dbms AS SIGNED) + CAST(os AS SIGNED) + CAST(spm AS SIGNED) + CAST(punjabi AS SIGNED)) AS total_marks, 
+            ROUND((CAST(dbms AS SIGNED) + CAST(os AS SIGNED) + CAST(spm AS SIGNED) + CAST(punjabi AS SIGNED)) / 4, 2) AS percentage
+            FROM studentmarks
+            WHERE 
+            dbms NOT IN ('A', '<33') AND os NOT IN ('A', '<33') 
+            AND spm NOT IN ('A', '<33') AND punjabi NOT IN ('A', '<33')
+            AND CAST(dbms AS SIGNED) > 60 AND CAST(os AS SIGNED) > 60 
+            AND CAST(spm AS SIGNED) > 60 AND CAST(punjabi AS SIGNED) > 60
+            ORDER BY total_marks DESC
+            LIMIT 3;
+
+
+OUTPUT:-    +--------+--------+------+------+------+---------+-------------+------------+
+            | Rollno | name   | dbms | os   | spm  | punjabi | total_marks | percentage |
+            +--------+--------+------+------+------+---------+-------------+------------+
+            |     14 | Ajay   | 92   | 88   | 85   | 80      |         345 |      86.25 |
+            |     11 | Deepak | 80   | 95   | 85   | 80      |         340 |      85.00 |
+            |     13 | Isha   | 78   | 82   | 90   | 85      |         335 |      83.75 |
+            +--------+--------+------+------+------+---------+-------------+------------+
+      
+  </pre>
+  </div>
+
+  <br> <br>
+
+  <div class="code">
+    <p><strong>Question 2:</strong> TOP THREE STUDENTS ON ALL SUBJECTS</p>
+      <p><strong>Conditions:</strong><br>
+          - Total % > 60% <br>
+          - If marks tie, then we will check AGGREGATE MARKS and if the AGGREGATE MARKS tie then the prize will given to all students for that particular position.
+      </p>
+    <pre>
+
+  QUERY:-   -- DBMS TOP 3
+  SELECT * FROM (
+      SELECT 
+          RollNo, name, 'DBMS' AS Subject,
+          CAST(dbms AS UNSIGNED) AS Marks,
+          (CAST(dbms AS UNSIGNED) + CAST(os AS UNSIGNED) + CAST(spm AS UNSIGNED) + CAST(punjabi AS UNSIGNED)) AS Total,
+          ROUND((
+              (CAST(dbms AS UNSIGNED) + CAST(os AS UNSIGNED) + CAST(spm AS UNSIGNED) + CAST(punjabi AS UNSIGNED)) / 4
+          ), 2) AS Percentage,
+          RANK() OVER (
+              ORDER BY CAST(dbms AS UNSIGNED) DESC,
+                       (CAST(dbms AS UNSIGNED) + CAST(os AS UNSIGNED) + CAST(spm AS UNSIGNED) + CAST(punjabi AS UNSIGNED)) DESC
+          ) AS pos
+      FROM StudentMarks
+      WHERE dbms != 'A' AND CAST(dbms AS UNSIGNED) >= 33
+  ) AS dbms_rank
+  WHERE pos <= 3
+  
+  UNION ALL
+  
+  -- OS TOP 3
+  SELECT * FROM (
+      SELECT 
+          RollNo, name, 'OS' AS Subject,
+          CAST(os AS UNSIGNED) AS Marks,
+          (CAST(dbms AS UNSIGNED) + CAST(os AS UNSIGNED) + CAST(spm AS UNSIGNED) + CAST(punjabi AS UNSIGNED)) AS Total,
+          ROUND((
+              (CAST(dbms AS UNSIGNED) + CAST(os AS UNSIGNED) + CAST(spm AS UNSIGNED) + CAST(punjabi AS UNSIGNED)) / 4
+          ), 2) AS Percentage,
+          RANK() OVER (
+              ORDER BY CAST(os AS UNSIGNED) DESC,
+                       (CAST(dbms AS UNSIGNED) + CAST(os AS UNSIGNED) + CAST(spm AS UNSIGNED) + CAST(punjabi AS UNSIGNED)) DESC
+          ) AS pos
+      FROM StudentMarks
+      WHERE os != 'A' AND CAST(os AS UNSIGNED) >= 33
+  ) AS os_rank
+  WHERE pos <= 3
+  
+  UNION ALL
+  
+  -- SPM TOP 3
+  SELECT * FROM (
+      SELECT 
+          RollNo, name, 'SPM' AS Subject,
+          CAST(spm AS UNSIGNED) AS Marks,
+          (CAST(dbms AS UNSIGNED) + CAST(os AS UNSIGNED) + CAST(spm AS UNSIGNED) + CAST(punjabi AS UNSIGNED)) AS Total,
+          ROUND((
+              (CAST(dbms AS UNSIGNED) + CAST(os AS UNSIGNED) + CAST(spm AS UNSIGNED) + CAST(punjabi AS UNSIGNED)) / 4
+          ), 2) AS Percentage,
+          RANK() OVER (
+              ORDER BY CAST(spm AS UNSIGNED) DESC,
+                       (CAST(dbms AS UNSIGNED) + CAST(os AS UNSIGNED) + CAST(spm AS UNSIGNED) + CAST(punjabi AS UNSIGNED)) DESC
+          ) AS pos
+      FROM StudentMarks
+      WHERE spm != 'A' AND CAST(spm AS UNSIGNED) >= 33
+  ) AS spm_rank
+  WHERE pos <= 3
+  
+  UNION ALL
+  
+  -- PUNJABI TOP 3
+  SELECT * FROM (
+      SELECT 
+          RollNo, name, 'Punjabi' AS Subject,
+          CAST(punjabi AS UNSIGNED) AS Marks,
+          (CAST(dbms AS UNSIGNED) + CAST(os AS UNSIGNED) + CAST(spm AS UNSIGNED) + CAST(punjabi AS UNSIGNED)) AS Total,
+          ROUND((
+              (CAST(dbms AS UNSIGNED) + CAST(os AS UNSIGNED) + CAST(spm AS UNSIGNED) + CAST(punjabi AS UNSIGNED)) / 4
+          ), 2) AS Percentage,
+          RANK() OVER (
+              ORDER BY CAST(punjabi AS UNSIGNED) DESC,
+                       (CAST(dbms AS UNSIGNED) + CAST(os AS UNSIGNED) + CAST(spm AS UNSIGNED) + CAST(punjabi AS UNSIGNED)) DESC
+          ) AS pos
+      FROM StudentMarks
+      WHERE punjabi != 'A' AND CAST(punjabi AS UNSIGNED) >= 33
+  ) AS punjabi_rank
+  WHERE pos <= 3;
+  
+
+
+OUTPUT:-    +--------+--------+---------+-------+-------+------------+-----+
+            | RollNo | name   | Subject | Marks | Total | Percentage | pos |
+            +--------+--------+---------+-------+-------+------------+-----+
+            |     14 | Ajay   | DBMS    |    92 |   345 |      86.25 |   1 |
+            |     16 | Maya   | DBMS    |    90 |   261 |      65.25 |   2 |
+            |      5 | Rohit  | DBMS    |    88 |   324 |      81.00 |   3 |
+            |     11 | Deepak | OS      |    95 |   340 |      85.00 |   1 |
+            |      5 | Rohit  | OS      |    95 |   324 |      81.00 |   2 |
+            |     16 | Maya   | OS      |    93 |   261 |      65.25 |   3 |
+            |      8 | Shreya | SPM     |    95 |   331 |      82.75 |   1 |
+            |     18 | Nisha  | SPM     |    91 |   252 |      63.00 |   2 |
+            |     13 | Isha   | SPM     |    90 |   335 |      83.75 |   3 |
+            |     13 | Isha   | Punjabi |    85 |   335 |      83.75 |   1 |
+            |     17 | Kartik | Punjabi |    85 |   324 |      81.00 |   2 |
+            |      7 | Ravi   | Punjabi |    85 |   321 |      80.25 |   3 |
+            +--------+--------+---------+-------+-------+------------+-----+
+      
+  </pre>
+
+</body>
+</html>
