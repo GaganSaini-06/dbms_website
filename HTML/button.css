@@ -1,0 +1,26 @@
+a{
+    display: inline-block; 
+    padding: 10px;
+    background-color: rgb(61, 59, 59);
+    border-radius: 5px;
+    text-decoration: none;
+    color: whitesmoke;
+    font-family: sans-serif;
+}
+a:hover{
+    background-color: rgb(119, 115, 115);
+    color:rgb(219, 217, 217);
+    transform: scale(1.1); 
+    cursor: pointer;
+}
+
+h1{
+    font-family: sans-serif;
+    background-color: #070648;
+    color: white;
+}
+
+body{
+    background-color: #e0e0e0;
+    margin: 0%
+}

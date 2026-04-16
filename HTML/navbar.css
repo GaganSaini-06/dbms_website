@@ -1,0 +1,39 @@
+.navbody {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* Navbar Container */
+.navbar {
+    position: fixed;
+    width: 100%;
+    background-color: #070648;
+}
+
+/* Navbar List */
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* space between items */
+    height: 70px;
+    align-items: center;
+}
+
+/* Navbar Links */
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 16px;
+}
+
+/* Hover Effect */
+.navbar ul li a:hover {
+    background-color: #120999;
+    color: #d7d5c6;
+    border-radius: 5px;
+}
